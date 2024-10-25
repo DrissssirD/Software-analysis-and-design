@@ -65,4 +65,4 @@ This project is licensed under the MIT License - see the `LICENSE.md` file for d
 
 ## Contact
 
-For questions or inquiries, please contact [email protected]
+For questions or inquiries, please contact [driss.bouadoud@final.edu.tr]
