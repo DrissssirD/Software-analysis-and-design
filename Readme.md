@@ -55,13 +55,6 @@ Many skilled workers struggle to find appropriate employment due to a lack of ro
 * **Testing:** Thoroughly test all features and functionalities to ensure reliability and performance.
 * **Maintenance & Updates:** Plan for ongoing maintenance and updates to keep the platform current and secure.
 
-## Contributing
-
-Contributions are welcome! Please see the `CONTRIBUTING.md` file for guidelines.
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
 
 ## Contact
 
