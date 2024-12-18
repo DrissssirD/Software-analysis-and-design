@@ -1,0 +1,3770 @@
+
+D:.
+³   .editorconfig
+³   .env
+³   .env.example
+³   .gitattributes
+³   .gitignore
+³   artisan
+³   composer.json
+³   composer.lock
+³   directory_tree.txt
+³   jsconfig.json
+³   package-lock.json
+³   package.json
+³   phpunit.xml
+³   postcss.config.js
+³   README.md
+³   tailwind.config.js
+³   vite.config.js
+³   
+ÃÄÄÄapp
+³   ÃÄÄÄHttp
+³   ³   ÃÄÄÄControllers
+³   ³   ³   ³   Controller.php
+³   ³   ³   ³   ProfileController.php
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄAuth
+³   ³   ³           AuthenticatedSessionController.php
+³   ³   ³           ConfirmablePasswordController.php
+³   ³   ³           EmailVerificationNotificationController.php
+³   ³   ³           EmailVerificationPromptController.php
+³   ³   ³           NewPasswordController.php
+³   ³   ³           PasswordController.php
+³   ³   ³           PasswordResetLinkController.php
+³   ³   ³           RegisteredUserController.php
+³   ³   ³           VerifyEmailController.php
+³   ³   ³           
+³   ³   ÃÄÄÄMiddleware
+³   ³   ³       HandleInertiaRequests.php
+³   ³   ³       
+³   ³   ÀÄÄÄRequests
+³   ³       ³   ProfileUpdateRequest.php
+³   ³       ³   
+³   ³       ÀÄÄÄAuth
+³   ³               LoginRequest.php
+³   ³               
+³   ÃÄÄÄModels
+³   ³       User.php
+³   ³       
+³   ÀÄÄÄProviders
+³           AppServiceProvider.php
+³           
+ÃÄÄÄbootstrap
+³   ³   app.php
+³   ³   providers.php
+³   ³   
+³   ÀÄÄÄcache
+³           .gitignore
+³           packages.php
+³           services.php
+³           
+ÃÄÄÄconfig
+³       app.php
+³       auth.php
+³       cache.php
+³       database.php
+³       filesystems.php
+³       logging.php
+³       mail.php
+³       queue.php
+³       services.php
+³       session.php
+³       
+ÃÄÄÄdatabase
+³   ³   .gitignore
+³   ³   
+³   ÃÄÄÄfactories
+³   ³       UserFactory.php
+³   ³       
+³   ÃÄÄÄmigrations
+³   ³       0001_01_01_000000_create_users_table.php
+³   ³       0001_01_01_000001_create_cache_table.php
+³   ³       0001_01_01_000002_create_jobs_table.php
+³   ³       2024_11_28_213221_add_user_type_to_users_table.php
+³   ³       
+³   ÀÄÄÄseeders
+³           DatabaseSeeder.php
+³           
+Ã
+³   ³       
+³   ÃÄÄÄ.vite
+³   ³   ÀÄÄÄdeps
+³   ³           @headlessui_react.js
+³   ³           @headlessui_react.js.map
+³   ³           @inertiajs_react.js
+³   ³           @inertiajs_react.js.map
+³   ³           axios.js
+³   ³           axios.js.map
+³   ³           chunk-7T4RZKVF.js
+³   ³           chunk-7T4RZKVF.js.map
+³   ³           chunk-DRWLMN53.js
+³   ³           chunk-DRWLMN53.js.map
+³   ³           chunk-G3PMV62Z.js
+³   ³           chunk-G3PMV62Z.js.map
+³   ³           chunk-PJEEZAML.js
+³   ³           chunk-PJEEZAML.js.map
+³   ³           laravel-vite-plugin_inertia-helpers.js
+³   ³           laravel-vite-plugin_inertia-helpers.js.map
+³   ³           package.json
+³   ³           react-dom.js
+³   ³           react-dom.js.map
+³   ³           react-dom_client.js
+³   ³           react-dom_client.js.map
+³   ³           react.js
+³   ³           react.js.map
+³   ³           react_jsx-dev-runtime.js
+³   ³           react_jsx-dev-runtime.js.map
+³   ³           react_jsx-runtime.js
+³   ³           react_jsx-runtime.js.map
+³   ³           _metadata.json
+³   ³           
+³   ÃÄÄÄ@alloc
+³   ³   ÀÄÄÄquick-lru
+³   ³           index.d.ts
+³   ³           index.js
+³   ³           license
+³   ³           package.json
+³   ³           readme.md
+³   ³           
+³   ÃÄÄÄ@ampproject
+³   ³   ÀÄÄÄremapping
+³   ³       ³   LICENSE
+³   ³       ³   package.json
+³   ³       ³   README.md
+³   ³       ³   
+³   ³       ÀÄÄÄdist
+³   ³           ³   remapping.mjs
+³   ³           ³   remapping.mjs.map
+³   ³           ³   remapping.umd.js
+³   ³           ³   remapping.umd.js.map
+³   ³           ³   
+³   ³           ÀÄÄÄtypes
+³   ³                   build-source-map-tree.d.ts
+³   ³                   remapping.d.ts
+³   ³                   source-map-tree.d.ts
+³   ³                   source-map.d.ts
+³   ³                   types.d.ts
+³   ³                   index.d.ts.map
+³   ³           
+³   ÃÄÄÄscheduler
+³   ³   ³   index.js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   unstable_mock.js
+³   ³   ³   unstable_post_task.js
+³   ³   ³   
+³   ³   ÃÄÄÄcjs
+³   ³   ³       scheduler-unstable_mock.development.js
+³   ³   ³       scheduler-unstable_mock.production.min.js
+³   ³   ³       scheduler-unstable_post_task.development.js
+³   ³   ³       scheduler-unstable_post_task.production.min.js
+³   ³   ³       scheduler.development.js
+³   ³   ³       scheduler.production.min.js
+³   ³   ³       
+³   ³   ÀÄÄÄumd
+³   ³           scheduler-unstable_mock.development.js
+³   ³           scheduler-unstable_mock.production.min.js
+³   ³           scheduler.development.js
+³   ³           scheduler.production.min.js
+³   ³           scheduler.profiling.min.js
+³   ³           
+³   ÃÄÄÄsemver
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   range.bnf
+³   ³   ³   README.md
+³   ³   ³   semver.js
+³   ³   ³   
+³   ³   ÀÄÄÄbin
+³   ³           semver.js
+³   ³           
+³   ÃÄÄÄset-function-length
+³   ³   ³   .eslintrc
+³   ³   ³   .nycrc
+³   ³   ³   CHANGELOG.md
+³   ³   ³   env.d.ts
+³   ³   ³   env.js
+³   ³   ³   index.d.ts
+³   ³   ³   index.js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   tsconfig.json
+³   ³   ³   
+³   ³   ÀÄÄÄ.github
+³   ³           FUNDING.yml
+³   ³           
+³   ÃÄÄÄshebang-command
+³   ³       index.js
+³   ³       license
+³   ³       package.json
+³   ³       readme.md
+³   ³       
+³   ÃÄÄÄshebang-regex
+³   ³       index.d.ts
+³   ³       index.js
+³   ³       license
+³   ³       package.json
+³   ³       readme.md
+³   ³       
+³   ÃÄÄÄshell-quote
+³   ³   ³   .eslintrc
+³   ³   ³   .nycrc
+³   ³   ³   CHANGELOG.md
+³   ³   ³   index.js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   parse.js
+³   ³   ³   quote.js
+³   ³   ³   README.md
+³   ³   ³   security.md
+³   ³   ³   
+³   ³   ÃÄÄÄ.github
+³   ³   ³       FUNDING.yml
+³   ³   ³       
+³   ³   ÃÄÄÄexample
+³   ³   ³       env.js
+³   ³   ³       op.js
+³   ³   ³       parse.js
+³   ³   ³       quote.js
+³   ³   ³       
+³   ³   ÀÄÄÄtest
+³   ³           comment.js
+³   ³           env.js
+³   ³           env_fn.js
+³   ³           op.js
+³   ³           parse.js
+³   ³           quote.js
+³   ³           set.js
+³   ³           
+³   ÃÄÄÄside-channel
+³   ³   ³   .editorconfig
+³   ³   ³   .eslintrc
+³   ³   ³   .nycrc
+³   ³   ³   CHANGELOG.md
+³   ³   ³   index.d.ts
+³   ³   ³   index.js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   tsconfig.json
+³   ³   ³   
+³   ³   ÃÄÄÄ.github
+³   ³   ³       FUNDING.yml
+³   ³   ³       
+³   ³   ÀÄÄÄtest
+³   ³           index.js
+³   ³           
+³   ÃÄÄÄsignal-exit
+³   ³   ³   LICENSE.txt
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÀÄÄÄdist
+³   ³       ÃÄÄÄcjs
+³   ³       ³       browser.d.ts
+³   ³       ³       browser.d.ts.map
+³   ³       ³       browser.js
+³   ³       ³       browser.js.map
+³   ³       ³       index.d.ts
+³   ³       ³       index.d.ts.map
+³   ³       ³       index.js
+³   ³       ³       index.js.map
+³   ³       ³       package.json
+³   ³       ³       signals.d.ts
+³   ³       ³       signals.d.ts.map
+³   ³       ³       signals.js
+³   ³       ³       signals.js.map
+³   ³       ³       
+³   ³       ÀÄÄÄmjs
+³   ³               browser.d.ts
+³   ³               browser.d.ts.map
+³   ³               browser.js
+³   ³               browser.js.map
+³   ³               index.d.ts
+³   ³               index.d.ts.map
+³   ³               index.js
+³   ³               index.js.map
+³   ³               package.json
+³   ³               signals.d.ts
+³   ³               signals.d.ts.map
+³   ³               signals.js
+³   ³               signals.js.map
+³   ³               
+³   ÃÄÄÄsource-map-js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   source-map.d.ts
+³   ³   ³   source-map.js
+³   ³   ³   
+³   ³   ÀÄÄÄlib
+³   ³           array-set.js
+³   ³           base64-vlq.js
+³   ³           base64.js
+³   ³           binary-search.js
+³   ³           mapping-list.js
+³   ³           quick-sort.js
+³   ³           source-map-consumer.d.ts
+³   ³           source-map-consumer.js
+³   ³           source-map-generator.d.ts
+³   ³           source-map-generator.js
+³   ³           source-node.d.ts
+³   ³           source-node.js
+³   ³           util.js
+³   ³           
+³   ÃÄÄÄstring-width
+³   ³       index.d.ts
+³   ³       index.js
+³   ³       license
+³   ³       package.json
+³   ³       readme.md
+³   ³       
+³   ÃÄÄÄstring-width-cjs
+³   ³   ³   index.d.ts
+³   ³   ³   index.js
+³   ³   ³   license
+³   ³   ³   package.json
+³   ³   ³   readme.md
+³   ³   ³   
+³   ³   ÀÄÄÄnode_modules
+³   ³       ÃÄÄÄansi-regex
+³   ³       ³       index.d.ts
+³   ³       ³       index.js
+³   ³       ³       license
+³   ³       ³       package.json
+³   ³       ³       readme.md
+³   ³       ³       
+³   ³       ÃÄÄÄemoji-regex
+³   ³       ³   ³   index.d.ts
+³   ³       ³   ³   index.js
+³   ³       ³   ³   LICENSE-MIT.txt
+³   ³       ³   ³   package.json
+³   ³       ³   ³   README.md
+³   ³       ³   ³   text.js
+³   ³       ³   ³   
+³   ³       ³   ÀÄÄÄes2015
+³   ³       ³           index.js
+³   ³       ³           text.js
+³   ³       ³           
+³   ³       ÀÄÄÄstrip-ansi
+³   ³               index.d.ts
+³   ³               index.js
+³   ³               license
+³   ³               package.json
+³   ³               readme.md
+³   ³               
+³   ÃÄÄÄstrip-ansi
+³   ³       index.d.ts
+³   ³       index.js
+³   ³       license
+³   ³       package.json
+³   ³       readme.md
+³   ³       
+³   ÃÄÄÄstrip-ansi-cjs
+³   ³   ³   index.d.ts
+³   ³   ³   index.js
+³   ³   ³   license
+³   ³   ³   package.json
+³   ³   ³   readme.md
+³   ³   ³   
+³   ³   ÀÄÄÄnode_modules
+³   ³       ÀÄÄÄansi-regex
+³   ³               index.d.ts
+³   ³               index.js
+³   ³               license
+³   ³               package.json
+³   ³               readme.md
+³   ³               
+³   ÃÄÄÄsucrase
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÃÄÄÄbin
+³   ³   ³       sucrase
+³   ³   ³       sucrase-node
+³   ³   ³       
+³   ³   ÃÄÄÄdist
+³   ³   ³   ³   CJSImportProcessor.js
+³   ³   ³   ³   cli.js
+³   ³   ³   ³   computeSourceMap.js
+³   ³   ³   ³   HelperManager.js
+³   ³   ³   ³   identifyShadowedGlobals.js
+³   ³   ³   ³   index.js
+³   ³   ³   ³   NameManager.js
+³   ³   ³   ³   Options-gen-types.js
+³   ³   ³   ³   Options.js
+³   ³   ³   ³   register.js
+³   ³   ³   ³   TokenProcessor.js
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄesm
+³   ³   ³   ³   ³   CJSImportProcessor.js
+³   ³   ³   ³   ³   cli.js
+³   ³   ³   ³   ³   computeSourceMap.js
+³   ³   ³   ³   ³   HelperManager.js
+³   ³   ³   ³   ³   identifyShadowedGlobals.js
+³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   NameManager.js
+³   ³   ³   ³   ³   Options-gen-types.js
+³   ³   ³   ³   ³   Options.js
+³   ³   ³   ³   ³   register.js
+³   ³   ³   ³   ³   TokenProcessor.js
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄparser
+³   ³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   ³   
+³   ³   ³   ³   ³   ÃÄÄÄplugins
+³   ³   ³   ³   ³   ³   ³   flow.js
+³   ³   ³   ³   ³   ³   ³   types.js
+³   ³   ³   ³   ³   ³   ³   typescript.js
+³   ³   ³   ³   ³   ³   ³   
+³   ³   ³   ³   ³   ³   ÀÄÄÄjsx
+³   ³   ³   ³   ³   ³           index.js
+³   ³   ³   ³   ³   ³           xhtml.js
+³   ³   ³   ³   ³   ³           
+³   ³   ³   ³   ³   ÃÄÄÄtokenizer
+³   ³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³   ³       keywords.js
+³   ³   ³   ³   ³   ³       readWord.js
+³   ³   ³   ³   ³   ³       readWordTree.js
+³   ³   ³   ³   ³   ³       state.js
+³   ³   ³   ³   ³   ³       types.js
+³   ³   ³   ³   ³   ³       
+³   ³   ³   ³   ³   ÃÄÄÄtraverser
+³   ³   ³   ³   ³   ³       base.js
+³   ³   ³   ³   ³   ³       expression.js
+³   ³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³   ³       lval.js
+³   ³   ³   ³   ³   ³       statement.js
+³   ³   ³   ³   ³   ³       util.js
+³   ³   ³   ³   ³   ³       
+³   ³   ³   ³   ³   ÀÄÄÄutil
+³   ³   ³   ³   ³           charcodes.js
+³   ³   ³   ³   ³           identifier.js
+³   ³   ³   ³   ³           whitespace.js
+³   ³   ³   ³   ³           
+³   ³   ³   ³   ÃÄÄÄtransformers
+³   ³   ³   ³   ³       CJSImportTransformer.js
+³   ³   ³   ³   ³       ESMImportTransformer.js
+³   ³   ³   ³   ³       FlowTransformer.js
+³   ³   ³   ³   ³       JestHoistTransformer.js
+³   ³   ³   ³   ³       JSXTransformer.js
+³   ³   ³   ³   ³       NumericSeparatorTransformer.js
+³   ³   ³   ³   ³       OptionalCatchBindingTransformer.js
+³   ³   ³   ³   ³       OptionalChainingNullishTransformer.js
+³   ³   ³   ³   ³       ReactDisplayNameTransformer.js
+³   ³   ³   ³   ³       ReactHotLoaderTransformer.js
+³   ³   ³   ³   ³       RootTransformer.js
+³   ³   ³   ³   ³       Transformer.js
+³   ³   ³   ³   ³       TypeScriptTransformer.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄutil
+³   ³   ³   ³           elideImportEquals.js
+³   ³   ³   ³           formatTokens.js
+³   ³   ³   ³           getClassInfo.js
+³   ³   ³   ³           getDeclarationInfo.js
+³   ³   ³   ³           getIdentifierNames.js
+³   ³   ³   ³           getImportExportSpecifierInfo.js
+³   ³   ³   ³           getJSXPragmaInfo.js
+³   ³   ³   ³           getNonTypeIdentifiers.js
+³   ³   ³   ³           getTSImportedNames.js
+³   ³   ³   ³           isAsyncOperation.js
+³   ³   ³   ³           isExportFrom.js
+³   ³   ³   ³           isIdentifier.js
+³   ³   ³   ³           removeMaybeImportAttributes.js
+³   ³   ³   ³           shouldElideDefaultExport.js
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄparser
+³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄplugins
+³   ³   ³   ³   ³   ³   flow.js
+³   ³   ³   ³   ³   ³   types.js
+³   ³   ³   ³   ³   ³   typescript.js
+³   ³   ³   ³   ³   ³   
+³   ³   ³   ³   ³   ÀÄÄÄjsx
+³   ³   ³   ³   ³           index.js
+³   ³   ³   ³   ³           xhtml.js
+³   ³   ³   ³   ³           
+³   ³   ³   ³   ÃÄÄÄtokenizer
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       keywords.js
+³   ³   ³   ³   ³       readWord.js
+³   ³   ³   ³   ³       readWordTree.js
+³   ³   ³   ³   ³       state.js
+³   ³   ³   ³   ³       types.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÃÄÄÄtraverser
+³   ³   ³   ³   ³       base.js
+³   ³   ³   ³   ³       expression.js
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       lval.js
+³   ³   ³   ³   ³       statement.js
+³   ³   ³   ³   ³       util.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄutil
+³   ³   ³   ³           charcodes.js
+³   ³   ³   ³           identifier.js
+³   ³   ³   ³           whitespace.js
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄtransformers
+³   ³   ³   ³       CJSImportTransformer.js
+³   ³   ³   ³       ESMImportTransformer.js
+³   ³   ³   ³       FlowTransformer.js
+³   ³   ³   ³       JestHoistTransformer.js
+³   ³   ³   ³       JSXTransformer.js
+³   ³   ³   ³       NumericSeparatorTransformer.js
+³   ³   ³   ³       OptionalCatchBindingTransformer.js
+³   ³   ³   ³       OptionalChainingNullishTransformer.js
+³   ³   ³   ³       ReactDisplayNameTransformer.js
+³   ³   ³   ³       ReactHotLoaderTransformer.js
+³   ³   ³   ³       RootTransformer.js
+³   ³   ³   ³       Transformer.js
+³   ³   ³   ³       TypeScriptTransformer.js
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄtypes
+³   ³   ³   ³   ³   CJSImportProcessor.d.ts
+³   ³   ³   ³   ³   cli.d.ts
+³   ³   ³   ³   ³   computeSourceMap.d.ts
+³   ³   ³   ³   ³   HelperManager.d.ts
+³   ³   ³   ³   ³   identifyShadowedGlobals.d.ts
+³   ³   ³   ³   ³   index.d.ts
+³   ³   ³   ³   ³   NameManager.d.ts
+³   ³   ³   ³   ³   Options-gen-types.d.ts
+³   ³   ³   ³   ³   Options.d.ts
+³   ³   ³   ³   ³   register.d.ts
+³   ³   ³   ³   ³   TokenProcessor.d.ts
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄparser
+³   ³   ³   ³   ³   ³   index.d.ts
+³   ³   ³   ³   ³   ³   
+³   ³   ³   ³   ³   ÃÄÄÄplugins
+³   ³   ³   ³   ³   ³   ³   flow.d.ts
+³   ³   ³   ³   ³   ³   ³   types.d.ts
+³   ³   ³   ³   ³   ³   ³   typescript.d.ts
+³   ³   ³   ³   ³   ³   ³   
+³   ³   ³   ³   ³   ³   ÀÄÄÄjsx
+³   ³   ³   ³   ³   ³           index.d.ts
+³   ³   ³   ³   ³   ³           xhtml.d.ts
+³   ³   ³   ³   ³   ³           
+³   ³   ³   ³   ³   ÃÄÄÄtokenizer
+³   ³   ³   ³   ³   ³       index.d.ts
+³   ³   ³   ³   ³   ³       keywords.d.ts
+³   ³   ³   ³   ³   ³       readWord.d.ts
+³   ³   ³   ³   ³   ³       readWordTree.d.ts
+³   ³   ³   ³   ³   ³       state.d.ts
+³   ³   ³   ³   ³   ³       types.d.ts
+³   ³   ³   ³   ³   ³       
+³   ³   ³   ³   ³   ÃÄÄÄtraverser
+³   ³   ³   ³   ³   ³       base.d.ts
+³   ³   ³   ³   ³   ³       expression.d.ts
+³   ³   ³   ³   ³   ³       index.d.ts
+³   ³   ³   ³   ³   ³       lval.d.ts
+³   ³   ³   ³   ³   ³       statement.d.ts
+³   ³   ³   ³   ³   ³       util.d.ts
+³   ³   ³   ³   ³   ³       
+³   ³   ³   ³   ³   ÀÄÄÄutil
+³   ³   ³   ³   ³           charcodes.d.ts
+³   ³   ³   ³   ³           identifier.d.ts
+³   ³   ³   ³   ³           whitespace.d.ts
+³   ³   ³   ³   ³           
+³   ³   ³   ³   ÃÄÄÄtransformers
+³   ³   ³   ³   ³       CJSImportTransformer.d.ts
+³   ³   ³   ³   ³       ESMImportTransformer.d.ts
+³   ³   ³   ³   ³       FlowTransformer.d.ts
+³   ³   ³   ³   ³       JestHoistTransformer.d.ts
+³   ³   ³   ³   ³       JSXTransformer.d.ts
+³   ³   ³   ³   ³       NumericSeparatorTransformer.d.ts
+³   ³   ³   ³   ³       OptionalCatchBindingTransformer.d.ts
+³   ³   ³   ³   ³       OptionalChainingNullishTransformer.d.ts
+³   ³   ³   ³   ³       ReactDisplayNameTransformer.d.ts
+³   ³   ³   ³   ³       ReactHotLoaderTransformer.d.ts
+³   ³   ³   ³   ³       RootTransformer.d.ts
+³   ³   ³   ³   ³       Transformer.d.ts
+³   ³   ³   ³   ³       TypeScriptTransformer.d.ts
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄutil
+³   ³   ³   ³           elideImportEquals.d.ts
+³   ³   ³   ³           formatTokens.d.ts
+³   ³   ³   ³           getClassInfo.d.ts
+³   ³   ³   ³           getDeclarationInfo.d.ts
+³   ³   ³   ³           getIdentifierNames.d.ts
+³   ³   ³   ³           getImportExportSpecifierInfo.d.ts
+³   ³   ³   ³           getJSXPragmaInfo.d.ts
+³   ³   ³   ³           getNonTypeIdentifiers.d.ts
+³   ³   ³   ³           getTSImportedNames.d.ts
+³   ³   ³   ³           isAsyncOperation.d.ts
+³   ³   ³   ³           isExportFrom.d.ts
+³   ³   ³   ³           isIdentifier.d.ts
+³   ³   ³   ³           removeMaybeImportAttributes.d.ts
+³   ³   ³   ³           shouldElideDefaultExport.d.ts
+³   ³   ³   ³           
+³   ³   ³   ÀÄÄÄutil
+³   ³   ³           elideImportEquals.js
+³   ³   ³           formatTokens.js
+³   ³   ³           getClassInfo.js
+³   ³   ³           getDeclarationInfo.js
+³   ³   ³           getIdentifierNames.js
+³   ³   ³           getImportExportSpecifierInfo.js
+³   ³   ³           getJSXPragmaInfo.js
+³   ³   ³           getNonTypeIdentifiers.js
+³   ³   ³           getTSImportedNames.js
+³   ³   ³           isAsyncOperation.js
+³   ³   ³           isExportFrom.js
+³   ³   ³           isIdentifier.js
+³   ³   ³           removeMaybeImportAttributes.js
+³   ³   ³           shouldElideDefaultExport.js
+³   ³   ³           
+³   ³   ÃÄÄÄregister
+³   ³   ³       index.js
+³   ³   ³       js.js
+³   ³   ³       jsx.js
+³   ³   ³       ts-legacy-module-interop.js
+³   ³   ³       ts.js
+³   ³   ³       tsx-legacy-module-interop.js
+³   ³   ³       tsx.js
+³   ³   ³       
+³   ³   ÀÄÄÄts-node-plugin
+³   ³           index.js
+³   ³           
+³   ÃÄÄÄsupports-color
+³   ³       browser.js
+³   ³       index.js
+³   ³       license
+³   ³       package.json
+³   ³       readme.md
+³   ³       
+³   ÃÄÄÄsupports-preserve-symlinks-flag
+³   ³   ³   .eslintrc
+³   ³   ³   .nycrc
+³   ³   ³   browser.js
+³   ³   ³   CHANGELOG.md
+³   ³   ³   index.js
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÃÄÄÄ.github
+³   ³   ³       FUNDING.yml
+³   ³   ³       
+³   ³   ÀÄÄÄtest
+³   ³           index.js
+³   ³           
+³   ÃÄÄÄtabbable
+³   ³   ³   CHANGELOG.md
+³   ³   ³   index.d.ts
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   SECURITY.md
+³   ³   ³   
+³   ³   ÃÄÄÄdist
+³   ³   ³       index.esm.js
+³   ³   ³       index.esm.js.map
+³   ³   ³       index.esm.min.js
+³   ³   ³       index.esm.min.js.map
+³   ³   ³       index.js
+³   ³   ³       index.js.map
+³   ³   ³       index.min.js
+³   ³   ³       index.min.js.map
+³   ³   ³       index.umd.js
+³   ³   ³       index.umd.js.map
+³   ³   ³       index.umd.min.js
+³   ³   ³       index.umd.min.js.map
+³   ³   ³       
+³   ³   ÀÄÄÄsrc
+³   ³           index.js
+³   ³           
+³   ÃÄÄÄtailwindcss
+³   ³   ³   base.css
+³   ³   ³   CHANGELOG.md
+³   ³   ³   colors.d.ts
+³   ³   ³   colors.js
+³   ³   ³   components.css
+³   ³   ³   defaultConfig.d.ts
+³   ³   ³   defaultConfig.js
+³   ³   ³   defaultTheme.d.ts
+³   ³   ³   defaultTheme.js
+³   ³   ³   LICENSE
+³   ³   ³   loadConfig.d.ts
+³   ³   ³   loadConfig.js
+³   ³   ³   package.json
+³   ³   ³   plugin.d.ts
+³   ³   ³   plugin.js
+³   ³   ³   prettier.config.js
+³   ³   ³   README.md
+³   ³   ³   resolveConfig.d.ts
+³   ³   ³   resolveConfig.js
+³   ³   ³   screens.css
+³   ³   ³   tailwind.css
+³   ³   ³   utilities.css
+³   ³   ³   variants.css
+³   ³   ³   
+³   ³   ÃÄÄÄlib
+³   ³   ³   ³   cli-peer-dependencies.js
+³   ³   ³   ³   cli.js
+³   ³   ³   ³   corePluginList.js
+³   ³   ³   ³   corePlugins.js
+³   ³   ³   ³   featureFlags.js
+³   ³   ³   ³   index.js
+³   ³   ³   ³   plugin.js
+³   ³   ³   ³   processTailwindFeatures.js
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄcli
+³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄbuild
+³   ³   ³   ³   ³       deps.js
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       plugin.js
+³   ³   ³   ³   ³       utils.js
+³   ³   ³   ³   ³       watching.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÃÄÄÄhelp
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄinit
+³   ³   ³   ³           index.js
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄcss
+³   ³   ³   ³       LICENSE
+³   ³   ³   ³       preflight.css
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄlib
+³   ³   ³   ³       cacheInvalidation.js
+³   ³   ³   ³       collapseAdjacentRules.js
+³   ³   ³   ³       collapseDuplicateDeclarations.js
+³   ³   ³   ³       content.js
+³   ³   ³   ³       defaultExtractor.js
+³   ³   ³   ³       evaluateTailwindFunctions.js
+³   ³   ³   ³       expandApplyAtRules.js
+³   ³   ³   ³       expandTailwindAtRules.js
+³   ³   ³   ³       findAtConfigPath.js
+³   ³   ³   ³       generateRules.js
+³   ³   ³   ³       getModuleDependencies.js
+³   ³   ³   ³       load-config.js
+³   ³   ³   ³       normalizeTailwindDirectives.js
+³   ³   ³   ³       offsets.js
+³   ³   ³   ³       partitionApplyAtRules.js
+³   ³   ³   ³       regex.js
+³   ³   ³   ³       remap-bitfield.js
+³   ³   ³   ³       resolveDefaultsAtRules.js
+³   ³   ³   ³       setupContextUtils.js
+³   ³   ³   ³       setupTrackingContext.js
+³   ³   ³   ³       sharedState.js
+³   ³   ³   ³       substituteScreenAtRules.js
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄpostcss-plugins
+³   ³   ³   ³   ÀÄÄÄnesting
+³   ³   ³   ³           index.js
+³   ³   ³   ³           plugin.js
+³   ³   ³   ³           README.md
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄpublic
+³   ³   ³   ³       colors.js
+³   ³   ³   ³       create-plugin.js
+³   ³   ³   ³       default-config.js
+³   ³   ³   ³       default-theme.js
+³   ³   ³   ³       load-config.js
+³   ³   ³   ³       resolve-config.js
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄutil
+³   ³   ³   ³       applyImportantSelector.js
+³   ³   ³   ³       bigSign.js
+³   ³   ³   ³       buildMediaQuery.js
+³   ³   ³   ³       cloneDeep.js
+³   ³   ³   ³       cloneNodes.js
+³   ³   ³   ³       color.js
+³   ³   ³   ³       colorNames.js
+³   ³   ³   ³       configurePlugins.js
+³   ³   ³   ³       createPlugin.js
+³   ³   ³   ³       createUtilityPlugin.js
+³   ³   ³   ³       dataTypes.js
+³   ³   ³   ³       defaults.js
+³   ³   ³   ³       escapeClassName.js
+³   ³   ³   ³       escapeCommas.js
+³   ³   ³   ³       flattenColorPalette.js
+³   ³   ³   ³       formatVariantSelector.js
+³   ³   ³   ³       getAllConfigs.js
+³   ³   ³   ³       hashConfig.js
+³   ³   ³   ³       isKeyframeRule.js
+³   ³   ³   ³       isPlainObject.js
+³   ³   ³   ³       isSyntacticallyValidPropertyValue.js
+³   ³   ³   ³       log.js
+³   ³   ³   ³       nameClass.js
+³   ³   ³   ³       negateValue.js
+³   ³   ³   ³       normalizeConfig.js
+³   ³   ³   ³       normalizeScreens.js
+³   ³   ³   ³       parseAnimationValue.js
+³   ³   ³   ³       parseBoxShadowValue.js
+³   ³   ³   ³       parseDependency.js
+³   ³   ³   ³       parseGlob.js
+³   ³   ³   ³       parseObjectStyles.js
+³   ³   ³   ³       pluginUtils.js
+³   ³   ³   ³       prefixSelector.js
+³   ³   ³   ³       pseudoElements.js
+³   ³   ³   ³       removeAlphaVariables.js
+³   ³   ³   ³       resolveConfig.js
+³   ³   ³   ³       resolveConfigPath.js
+³   ³   ³   ³       responsive.js
+³   ³   ³   ³       splitAtTopLevelOnly.js
+³   ³   ³   ³       tap.js
+³   ³   ³   ³       toColorValue.js
+³   ³   ³   ³       toPath.js
+³   ³   ³   ³       transformThemeValue.js
+³   ³   ³   ³       validateConfig.js
+³   ³   ³   ³       validateFormalSyntax.js
+³   ³   ³   ³       withAlphaVariable.js
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄvalue-parser
+³   ³   ³           index.d.js
+³   ³   ³           index.js
+³   ³   ³           LICENSE
+³   ³   ³           parse.js
+³   ³   ³           README.md
+³   ³   ³           stringify.js
+³   ³   ³           unit.js
+³   ³   ³           walk.js
+³   ³   ³           
+³   ³   ÃÄÄÄnesting
+³   ³   ³       index.d.ts
+³   ³   ³       index.js
+³   ³   ³       
+³   ³   ÃÄÄÄpeers
+³   ³   ³       index.js
+³   ³   ³       
+³   ³   ÃÄÄÄscripts
+³   ³   ³       create-plugin-list.js
+³   ³   ³       generate-types.js
+³   ³   ³       release-channel.js
+³   ³   ³       release-notes.js
+³   ³   ³       type-utils.js
+³   ³   ³       
+³   ³   ÃÄÄÄsrc
+³   ³   ³   ³   cli-peer-dependencies.js
+³   ³   ³   ³   cli.js
+³   ³   ³   ³   corePluginList.js
+³   ³   ³   ³   corePlugins.js
+³   ³   ³   ³   featureFlags.js
+³   ³   ³   ³   index.js
+³   ³   ³   ³   plugin.js
+³   ³   ³   ³   processTailwindFeatures.js
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄcli
+³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄbuild
+³   ³   ³   ³   ³       deps.js
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       plugin.js
+³   ³   ³   ³   ³       utils.js
+³   ³   ³   ³   ³       watching.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÃÄÄÄhelp
+³   ³   ³   ³   ³       index.js
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄinit
+³   ³   ³   ³           index.js
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄcss
+³   ³   ³   ³       LICENSE
+³   ³   ³   ³       preflight.css
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄlib
+³   ³   ³   ³       cacheInvalidation.js
+³   ³   ³   ³       collapseAdjacentRules.js
+³   ³   ³   ³       collapseDuplicateDeclarations.js
+³   ³   ³   ³       content.js
+³   ³   ³   ³       defaultExtractor.js
+³   ³   ³   ³       evaluateTailwindFunctions.js
+³   ³   ³   ³       expandApplyAtRules.js
+³   ³   ³   ³       expandTailwindAtRules.js
+³   ³   ³   ³       findAtConfigPath.js
+³   ³   ³   ³       generateRules.js
+³   ³   ³   ³       getModuleDependencies.js
+³   ³   ³   ³       load-config.ts
+³   ³   ³   ³       normalizeTailwindDirectives.js
+³   ³   ³   ³       offsets.js
+³   ³   ³   ³       partitionApplyAtRules.js
+³   ³   ³   ³       regex.js
+³   ³   ³   ³       remap-bitfield.js
+³   ³   ³   ³       resolveDefaultsAtRules.js
+³   ³   ³   ³       setupContextUtils.js
+³   ³   ³   ³       setupTrackingContext.js
+³   ³   ³   ³       sharedState.js
+³   ³   ³   ³       substituteScreenAtRules.js
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄpostcss-plugins
+³   ³   ³   ³   ÀÄÄÄnesting
+³   ³   ³   ³           index.js
+³   ³   ³   ³           plugin.js
+³   ³   ³   ³           README.md
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄpublic
+³   ³   ³   ³       colors.js
+³   ³   ³   ³       create-plugin.js
+³   ³   ³   ³       default-config.js
+³   ³   ³   ³       default-theme.js
+³   ³   ³   ³       load-config.js
+³   ³   ³   ³       resolve-config.js
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄutil
+³   ³   ³   ³       applyImportantSelector.js
+³   ³   ³   ³       bigSign.js
+³   ³   ³   ³       buildMediaQuery.js
+³   ³   ³   ³       cloneDeep.js
+³   ³   ³   ³       cloneNodes.js
+³   ³   ³   ³       color.js
+³   ³   ³   ³       colorNames.js
+³   ³   ³   ³       configurePlugins.js
+³   ³   ³   ³       createPlugin.js
+³   ³   ³   ³       createUtilityPlugin.js
+³   ³   ³   ³       dataTypes.js
+³   ³   ³   ³       defaults.js
+³   ³   ³   ³       escapeClassName.js
+³   ³   ³   ³       escapeCommas.js
+³   ³   ³   ³       flattenColorPalette.js
+³   ³   ³   ³       formatVariantSelector.js
+³   ³   ³   ³       getAllConfigs.js
+³   ³   ³   ³       hashConfig.js
+³   ³   ³   ³       isKeyframeRule.js
+³   ³   ³   ³       isPlainObject.js
+³   ³   ³   ³       isSyntacticallyValidPropertyValue.js
+³   ³   ³   ³       log.js
+³   ³   ³   ³       nameClass.js
+³   ³   ³   ³       negateValue.js
+³   ³   ³   ³       normalizeConfig.js
+³   ³   ³   ³       normalizeScreens.js
+³   ³   ³   ³       parseAnimationValue.js
+³   ³   ³   ³       parseBoxShadowValue.js
+³   ³   ³   ³       parseDependency.js
+³   ³   ³   ³       parseGlob.js
+³   ³   ³   ³       parseObjectStyles.js
+³   ³   ³   ³       pluginUtils.js
+³   ³   ³   ³       prefixSelector.js
+³   ³   ³   ³       pseudoElements.js
+³   ³   ³   ³       removeAlphaVariables.js
+³   ³   ³   ³       resolveConfig.js
+³   ³   ³   ³       resolveConfigPath.js
+³   ³   ³   ³       responsive.js
+³   ³   ³   ³       splitAtTopLevelOnly.js
+³   ³   ³   ³       tap.js
+³   ³   ³   ³       toColorValue.js
+³   ³   ³   ³       toPath.js
+³   ³   ³   ³       transformThemeValue.js
+³   ³   ³   ³       validateConfig.js
+³   ³   ³   ³       validateFormalSyntax.js
+³   ³   ³   ³       withAlphaVariable.js
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄvalue-parser
+³   ³   ³           index.d.ts
+³   ³   ³           index.js
+³   ³   ³           LICENSE
+³   ³   ³           parse.js
+³   ³   ³           README.md
+³   ³   ³           stringify.js
+³   ³   ³           unit.js
+³   ³   ³           walk.js
+³   ³   ³           
+³   ³   ÃÄÄÄstubs
+³   ³   ³       .npmignore
+³   ³   ³       .prettierrc.json
+³   ³   ³       config.full.js
+³   ³   ³       config.simple.js
+³   ³   ³       postcss.config.cjs
+³   ³   ³       postcss.config.js
+³   ³   ³       tailwind.config.cjs
+³   ³   ³       tailwind.config.js
+³   ³   ³       tailwind.config.ts
+³   ³   ³       
+³   ³   ÀÄÄÄtypes
+³   ³       ³   config.d.ts
+³   ³       ³   index.d.ts
+³   ³       ³   
+³   ³       ÀÄÄÄgenerated
+³   ³               .gitkeep
+³   ³               colors.d.ts
+³   ³               corePluginList.d.ts
+³   ³               default-theme.d.ts
+³   ³               
+³   ÃÄÄÄthenify
+³   ³       History.md
+³   ³       index.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       
+³   ÃÄÄÄthenify-all
+³   ³       History.md
+³   ³       index.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       
+³   ÃÄÄÄto-regex-range
+³   ³       index.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       
+³   ÃÄÄÄtree-kill
+³   ³       cli.js
+³   ³       index.d.ts
+³   ³       index.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       
+³   ÃÄÄÄts-interface-checker
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÀÄÄÄdist
+³   ³           index.d.ts
+³   ³           index.js
+³   ³           types.d.ts
+³   ³           types.js
+³   ³           util.d.ts
+³   ³           util.js
+³   ³           
+³   ÃÄÄÄtslib
+³   ³   ³   CopyrightNotice.txt
+³   ³   ³   LICENSE.txt
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   SECURITY.md
+³   ³   ³   tslib.d.ts
+³   ³   ³   tslib.es6.html
+³   ³   ³   tslib.es6.js
+³   ³   ³   tslib.es6.mjs
+³   ³   ³   tslib.html
+³   ³   ³   tslib.js
+³   ³   ³   
+³   ³   ÀÄÄÄmodules
+³   ³           index.d.ts
+³   ³           index.js
+³   ³           package.json
+³   ³           
+³   ÃÄÄÄupdate-browserslist-db
+³   ³       check-npm-version.js
+³   ³       cli.js
+³   ³       index.d.ts
+³   ³       index.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       utils.js
+³   ³       
+³   ÃÄÄÄutil-deprecate
+³   ³       browser.js
+³   ³       History.md
+³   ³       LICENSE
+³   ³       node.js
+³   ³       package.json
+³   ³       README.md
+³   ³       
+³   ÃÄÄÄvite
+³   ³   ³   client.d.ts
+³   ³   ³   index.cjs
+³   ³   ³   index.d.cts
+³   ³   ³   LICENSE.md
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÃÄÄÄbin
+³   ³   ³       openChrome.applescript
+³   ³   ³       vite.js
+³   ³   ³       
+³   ³   ÃÄÄÄdist
+³   ³   ³   ÃÄÄÄclient
+³   ³   ³   ³       client.mjs
+³   ³   ³   ³       env.mjs
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄnode
+³   ³   ³   ³   ³   cli.js
+³   ³   ³   ³   ³   constants.js
+³   ³   ³   ³   ³   index.d.ts
+³   ³   ³   ³   ³   index.js
+³   ³   ³   ³   ³   runtime.d.ts
+³   ³   ³   ³   ³   runtime.js
+³   ³   ³   ³   ³   types.d-aGj9QkWt.d.ts
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÀÄÄÄchunks
+³   ³   ³   ³           dep-BASfdaBA.js
+³   ³   ³   ³           dep-BWSbWtLw.js
+³   ³   ³   ³           dep-D-7KCb9p.js
+³   ³   ³   ³           dep-GkhNNjoY.js
+³   ³   ³   ³           dep-IQS-Za7F.js
+³   ³   ³   ³           
+³   ³   ³   ÀÄÄÄnode-cjs
+³   ³   ³           publicUtils.cjs
+³   ³   ³           
+³   ³   ÀÄÄÄtypes
+³   ³           customEvent.d.ts
+³   ³           hmrPayload.d.ts
+³   ³           hot.d.ts
+³   ³           import-meta.d.ts
+³   ³           importGlob.d.ts
+³   ³           importMeta.d.ts
+³   ³           metadata.d.ts
+³   ³           package.json
+³   ³           
+³   ÃÄÄÄvite-plugin-full-reload
+³   ³   ³   LICENSE.txt
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÀÄÄÄdist
+³   ³           index.cjs
+³   ³           index.d.cts
+³   ³           index.d.ts
+³   ³           index.js
+³   ³           
+³   ÃÄÄÄwhich
+³   ³   ³   CHANGELOG.md
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   which.js
+³   ³   ³   
+³   ³   ÀÄÄÄbin
+³   ³           node-which
+³   ³           
+³   ÃÄÄÄwrap-ansi
+³   ³   ³   index.d.ts
+³   ³   ³   index.js
+³   ³   ³   license
+³   ³   ³   package.json
+³   ³   ³   readme.md
+³   ³   ³   
+³   ³   ÀÄÄÄnode_modules
+³   ³       ÀÄÄÄansi-styles
+³   ³               index.d.ts
+³   ³               index.js
+³   ³               license
+³   ³               package.json
+³   ³               readme.md
+³   ³               
+³   ÃÄÄÄwrap-ansi-cjs
+³   ³   ³   index.js
+³   ³   ³   license
+³   ³   ³   package.json
+³   ³   ³   readme.md
+³   ³   ³   
+³   ³   ÀÄÄÄnode_modules
+³   ³       ÃÄÄÄansi-regex
+³   ³       ³       index.d.ts
+³   ³       ³       index.js
+³   ³       ³       license
+³   ³       ³       package.json
+³   ³       ³       readme.md
+³   ³       ³       
+³   ³       ÃÄÄÄemoji-regex
+³   ³       ³   ³   index.d.ts
+³   ³       ³   ³   index.js
+³   ³       ³   ³   LICENSE-MIT.txt
+³   ³       ³   ³   package.json
+³   ³       ³   ³   README.md
+³   ³       ³   ³   text.js
+³   ³       ³   ³   
+³   ³       ³   ÀÄÄÄes2015
+³   ³       ³           index.js
+³   ³       ³           text.js
+³   ³       ³           
+³   ³       ÃÄÄÄstring-width
+³   ³       ³       index.d.ts
+³   ³       ³       index.js
+³   ³       ³       license
+³   ³       ³       package.json
+³   ³       ³       readme.md
+³   ³       ³       
+³   ³       ÀÄÄÄstrip-ansi
+³   ³               index.d.ts
+³   ³               index.js
+³   ³               license
+³   ³               package.json
+³   ³               readme.md
+³   ³               
+³   ÃÄÄÄy18n
+³   ³   ³   CHANGELOG.md
+³   ³   ³   index.mjs
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   
+³   ³   ÀÄÄÄbuild
+³   ³       ³   index.cjs
+³   ³       ³   
+³   ³       ÀÄÄÄlib
+³   ³           ³   cjs.js
+³   ³           ³   index.js
+³   ³           ³   
+³   ³           ÀÄÄÄplatform-shims
+³   ³                   node.js
+³   ³                   
+³   ÃÄÄÄyallist
+³   ³       iterator.js
+³   ³       LICENSE
+³   ³       package.json
+³   ³       README.md
+³   ³       yallist.js
+³   ³       
+³   ÃÄÄÄyaml
+³   ³   ³   bin.mjs
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   util.js
+³   ³   ³   
+³   ³   ÃÄÄÄbrowser
+³   ³   ³   ³   index.js
+³   ³   ³   ³   package.json
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄdist
+³   ³   ³       ³   errors.js
+³   ³   ³       ³   index.js
+³   ³   ³       ³   log.js
+³   ³   ³       ³   public-api.js
+³   ³   ³       ³   util.js
+³   ³   ³       ³   visit.js
+³   ³   ³       ³   
+³   ³   ³       ÃÄÄÄcompose
+³   ³   ³       ³       compose-collection.js
+³   ³   ³       ³       compose-doc.js
+³   ³   ³       ³       compose-node.js
+³   ³   ³       ³       compose-scalar.js
+³   ³   ³       ³       composer.js
+³   ³   ³       ³       resolve-block-map.js
+³   ³   ³       ³       resolve-block-scalar.js
+³   ³   ³       ³       resolve-block-seq.js
+³   ³   ³       ³       resolve-end.js
+³   ³   ³       ³       resolve-flow-collection.js
+³   ³   ³       ³       resolve-flow-scalar.js
+³   ³   ³       ³       resolve-props.js
+³   ³   ³       ³       util-contains-newline.js
+³   ³   ³       ³       util-empty-scalar-position.js
+³   ³   ³       ³       util-flow-indent-check.js
+³   ³   ³       ³       util-map-includes.js
+³   ³   ³       ³       
+³   ³   ³       ÃÄÄÄdoc
+³   ³   ³       ³       anchors.js
+³   ³   ³       ³       applyReviver.js
+³   ³   ³       ³       createNode.js
+³   ³   ³       ³       directives.js
+³   ³   ³       ³       Document.js
+³   ³   ³       ³       
+³   ³   ³       ÃÄÄÄnodes
+³   ³   ³       ³       addPairToJSMap.js
+³   ³   ³       ³       Alias.js
+³   ³   ³       ³       Collection.js
+³   ³   ³       ³       identity.js
+³   ³   ³       ³       Node.js
+³   ³   ³       ³       Pair.js
+³   ³   ³       ³       Scalar.js
+³   ³   ³       ³       toJS.js
+³   ³   ³       ³       YAMLMap.js
+³   ³   ³       ³       YAMLSeq.js
+³   ³   ³       ³       
+³   ³   ³       ÃÄÄÄparse
+³   ³   ³       ³       cst-scalar.js
+³   ³   ³       ³       cst-stringify.js
+³   ³   ³       ³       cst-visit.js
+³   ³   ³       ³       cst.js
+³   ³   ³       ³       lexer.js
+³   ³   ³       ³       line-counter.js
+³   ³   ³       ³       parser.js
+³   ³   ³       ³       
+³   ³   ³       ÃÄÄÄschema
+³   ³   ³       ³   ³   Schema.js
+³   ³   ³       ³   ³   tags.js
+³   ³   ³       ³   ³   
+³   ³   ³       ³   ÃÄÄÄcommon
+³   ³   ³       ³   ³       map.js
+³   ³   ³       ³   ³       null.js
+³   ³   ³       ³   ³       seq.js
+³   ³   ³       ³   ³       string.js
+³   ³   ³       ³   ³       
+³   ³   ³       ³   ÃÄÄÄcore
+³   ³   ³       ³   ³       bool.js
+³   ³   ³       ³   ³       float.js
+³   ³   ³       ³   ³       int.js
+³   ³   ³       ³   ³       schema.js
+³   ³   ³       ³   ³       
+³   ³   ³       ³   ÃÄÄÄjson
+³   ³   ³       ³   ³       schema.js
+³   ³   ³       ³   ³       
+³   ³   ³       ³   ÀÄÄÄyaml-1.1
+³   ³   ³       ³           binary.js
+³   ³   ³       ³           bool.js
+³   ³   ³       ³           float.js
+³   ³   ³       ³           int.js
+³   ³   ³       ³           merge.js
+³   ³   ³       ³           omap.js
+³   ³   ³       ³           pairs.js
+³   ³   ³       ³           schema.js
+³   ³   ³       ³           set.js
+³   ³   ³       ³           timestamp.js
+³   ³   ³       ³           
+³   ³   ³       ÀÄÄÄstringify
+³   ³   ³               foldFlowLines.js
+³   ³   ³               stringify.js
+³   ³   ³               stringifyCollection.js
+³   ³   ³               stringifyComment.js
+³   ³   ³               stringifyDocument.js
+³   ³   ³               stringifyNumber.js
+³   ³   ³               stringifyPair.js
+³   ³   ³               stringifyString.js
+³   ³   ³               
+³   ³   ÀÄÄÄdist
+³   ³       ³   cli.d.ts
+³   ³       ³   cli.mjs
+³   ³       ³   errors.d.ts
+³   ³       ³   errors.js
+³   ³       ³   index.d.ts
+³   ³       ³   index.js
+³   ³       ³   log.d.ts
+³   ³       ³   log.js
+³   ³       ³   options.d.ts
+³   ³       ³   public-api.d.ts
+³   ³       ³   public-api.js
+³   ³       ³   test-events.d.ts
+³   ³       ³   test-events.js
+³   ³       ³   util.d.ts
+³   ³       ³   util.js
+³   ³       ³   visit.d.ts
+³   ³       ³   visit.js
+³   ³       ³   
+³   ³       ÃÄÄÄcompose
+³   ³       ³       compose-collection.d.ts
+³   ³       ³       compose-collection.js
+³   ³       ³       compose-doc.d.ts
+³   ³       ³       compose-doc.js
+³   ³       ³       compose-node.d.ts
+³   ³       ³       compose-node.js
+³   ³       ³       compose-scalar.d.ts
+³   ³       ³       compose-scalar.js
+³   ³       ³       composer.d.ts
+³   ³       ³       composer.js
+³   ³       ³       resolve-block-map.d.ts
+³   ³       ³       resolve-block-map.js
+³   ³       ³       resolve-block-scalar.d.ts
+³   ³       ³       resolve-block-scalar.js
+³   ³       ³       resolve-block-seq.d.ts
+³   ³       ³       resolve-block-seq.js
+³   ³       ³       resolve-end.d.ts
+³   ³       ³       resolve-end.js
+³   ³       ³       resolve-flow-collection.d.ts
+³   ³       ³       resolve-flow-collection.js
+³   ³       ³       resolve-flow-scalar.d.ts
+³   ³       ³       resolve-flow-scalar.js
+³   ³       ³       resolve-props.d.ts
+³   ³       ³       resolve-props.js
+³   ³       ³       util-contains-newline.d.ts
+³   ³       ³       util-contains-newline.js
+³   ³       ³       util-empty-scalar-position.d.ts
+³   ³       ³       util-empty-scalar-position.js
+³   ³       ³       util-flow-indent-check.d.ts
+³   ³       ³       util-flow-indent-check.js
+³   ³       ³       util-map-includes.d.ts
+³   ³       ³       util-map-includes.js
+³   ³       ³       
+³   ³       ÃÄÄÄdoc
+³   ³       ³       anchors.d.ts
+³   ³       ³       anchors.js
+³   ³       ³       applyReviver.d.ts
+³   ³       ³       applyReviver.js
+³   ³       ³       createNode.d.ts
+³   ³       ³       createNode.js
+³   ³       ³       directives.d.ts
+³   ³       ³       directives.js
+³   ³       ³       Document.d.ts
+³   ³       ³       Document.js
+³   ³       ³       
+³   ³       ÃÄÄÄnodes
+³   ³       ³       addPairToJSMap.d.ts
+³   ³       ³       addPairToJSMap.js
+³   ³       ³       Alias.d.ts
+³   ³       ³       Alias.js
+³   ³       ³       Collection.d.ts
+³   ³       ³       Collection.js
+³   ³       ³       identity.d.ts
+³   ³       ³       identity.js
+³   ³       ³       Node.d.ts
+³   ³       ³       Node.js
+³   ³       ³       Pair.d.ts
+³   ³       ³       Pair.js
+³   ³       ³       Scalar.d.ts
+³   ³       ³       Scalar.js
+³   ³       ³       toJS.d.ts
+³   ³       ³       toJS.js
+³   ³       ³       YAMLMap.d.ts
+³   ³       ³       YAMLMap.js
+³   ³       ³       YAMLSeq.d.ts
+³   ³       ³       YAMLSeq.js
+³   ³       ³       
+³   ³       ÃÄÄÄparse
+³   ³       ³       cst-scalar.d.ts
+³   ³       ³       cst-scalar.js
+³   ³       ³       cst-stringify.d.ts
+³   ³       ³       cst-stringify.js
+³   ³       ³       cst-visit.d.ts
+³   ³       ³       cst-visit.js
+³   ³       ³       cst.d.ts
+³   ³       ³       cst.js
+³   ³       ³       lexer.d.ts
+³   ³       ³       lexer.js
+³   ³       ³       line-counter.d.ts
+³   ³       ³       line-counter.js
+³   ³       ³       parser.d.ts
+³   ³       ³       parser.js
+³   ³       ³       
+³   ³       ÃÄÄÄschema
+³   ³       ³   ³   json-schema.d.ts
+³   ³       ³   ³   Schema.d.ts
+³   ³       ³   ³   Schema.js
+³   ³       ³   ³   tags.d.ts
+³   ³       ³   ³   tags.js
+³   ³       ³   ³   types.d.ts
+³   ³       ³   ³   
+³   ³       ³   ÃÄÄÄcommon
+³   ³       ³   ³       map.d.ts
+³   ³       ³   ³       map.js
+³   ³       ³   ³       null.d.ts
+³   ³       ³   ³       null.js
+³   ³       ³   ³       seq.d.ts
+³   ³       ³   ³       seq.js
+³   ³       ³   ³       string.d.ts
+³   ³       ³   ³       string.js
+³   ³       ³   ³       
+³   ³       ³   ÃÄÄÄcore
+³   ³       ³   ³       bool.d.ts
+³   ³       ³   ³       bool.js
+³   ³       ³   ³       float.d.ts
+³   ³       ³   ³       float.js
+³   ³       ³   ³       int.d.ts
+³   ³       ³   ³       int.js
+³   ³       ³   ³       schema.d.ts
+³   ³       ³   ³       schema.js
+³   ³       ³   ³       
+³   ³       ³   ÃÄÄÄjson
+³   ³       ³   ³       schema.d.ts
+³   ³       ³   ³       schema.js
+³   ³       ³   ³       
+³   ³       ³   ÀÄÄÄyaml-1.1
+³   ³       ³           binary.d.ts
+³   ³       ³           binary.js
+³   ³       ³           bool.d.ts
+³   ³       ³           bool.js
+³   ³       ³           float.d.ts
+³   ³       ³           float.js
+³   ³       ³           int.d.ts
+³   ³       ³           int.js
+³   ³       ³           merge.d.ts
+³   ³       ³           merge.js
+³   ³       ³           omap.d.ts
+³   ³       ³           omap.js
+³   ³       ³           pairs.d.ts
+³   ³       ³           pairs.js
+³   ³       ³           schema.d.ts
+³   ³       ³           schema.js
+³   ³       ³           set.d.ts
+³   ³       ³           set.js
+³   ³       ³           timestamp.d.ts
+³   ³       ³           timestamp.js
+³   ³       ³           
+³   ³       ÀÄÄÄstringify
+³   ³               foldFlowLines.d.ts
+³   ³               foldFlowLines.js
+³   ³               stringify.d.ts
+³   ³               stringify.js
+³   ³               stringifyCollection.d.ts
+³   ³               stringifyCollection.js
+³   ³               stringifyComment.d.ts
+³   ³               stringifyComment.js
+³   ³               stringifyDocument.d.ts
+³   ³               stringifyDocument.js
+³   ³               stringifyNumber.d.ts
+³   ³               stringifyNumber.js
+³   ³               stringifyPair.d.ts
+³   ³               stringifyPair.js
+³   ³               stringifyString.d.ts
+³   ³               stringifyString.js
+³   ³               
+³   ÃÄÄÄyargs
+³   ³   ³   browser.d.ts
+³   ³   ³   browser.mjs
+³   ³   ³   index.cjs
+³   ³   ³   index.mjs
+³   ³   ³   LICENSE
+³   ³   ³   package.json
+³   ³   ³   README.md
+³   ³   ³   yargs
+³   ³   ³   yargs.mjs
+³   ³   ³   
+³   ³   ÃÄÄÄbuild
+³   ³   ³   ³   index.cjs
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄlib
+³   ³   ³       ³   argsert.js
+³   ³   ³       ³   command.js
+³   ³   ³       ³   completion-templates.js
+³   ³   ³       ³   completion.js
+³   ³   ³       ³   middleware.js
+³   ³   ³       ³   parse-command.js
+³   ³   ³       ³   usage.js
+³   ³   ³       ³   validation.js
+³   ³   ³       ³   yargs-factory.js
+³   ³   ³       ³   yerror.js
+³   ³   ³       ³   
+³   ³   ³       ÃÄÄÄtypings
+³   ³   ³       ³       common-types.js
+³   ³   ³       ³       yargs-parser-types.js
+³   ³   ³       ³       
+³   ³   ³       ÀÄÄÄutils
+³   ³   ³               apply-extends.js
+³   ³   ³               is-promise.js
+³   ³   ³               levenshtein.js
+³   ³   ³               maybe-async-result.js
+³   ³   ³               obj-filter.js
+³   ³   ³               process-argv.js
+³   ³   ³               set-blocking.js
+³   ³   ³               which-module.js
+³   ³   ³               
+³   ³   ÃÄÄÄhelpers
+³   ³   ³       helpers.mjs
+³   ³   ³       index.js
+³   ³   ³       package.json
+³   ³   ³       
+³   ³   ÃÄÄÄlib
+³   ³   ³   ÀÄÄÄplatform-shims
+³   ³   ³           browser.mjs
+³   ³   ³           esm.mjs
+³   ³   ³           
+³   ³   ÃÄÄÄlocales
+³   ³   ³       be.json
+³   ³   ³       cs.json
+³   ³   ³       de.json
+³   ³   ³       en.json
+³   ³   ³       es.json
+³   ³   ³       fi.json
+³   ³   ³       fr.json
+³   ³   ³       hi.json
+³   ³   ³       hu.json
+³   ³   ³       id.json
+³   ³   ³       it.json
+³   ³   ³       ja.json
+³   ³   ³       ko.json
+³   ³   ³       nb.json
+³   ³   ³       nl.json
+³   ³   ³       nn.json
+³   ³   ³       pirate.json
+³   ³   ³       pl.json
+³   ³   ³       pt.json
+³   ³   ³       pt_BR.json
+³   ³   ³       ru.json
+³   ³   ³       th.json
+³   ³   ³       tr.json
+³   ³   ³       uk_UA.json
+³   ³   ³       uz.json
+³   ³   ³       zh_CN.json
+³   ³   ³       zh_TW.json
+³   ³   ³       
+³   ³   ÀÄÄÄnode_modules
+³   ³       ÃÄÄÄansi-regex
+³   ³       ³       index.d.ts
+³   ³       ³       index.js
+³   ³       ³       license
+³   ³       ³       package.json
+³   ³       ³       readme.md
+³   ³       ³       
+³   ³       ÃÄÄÄemoji-regex
+³   ³       ³   ³   index.d.ts
+³   ³       ³   ³   index.js
+³   ³       ³   ³   LICENSE-MIT.txt
+³   ³       ³   ³   package.json
+³   ³       ³   ³   README.md
+³   ³       ³   ³   text.js
+³   ³       ³   ³   
+³   ³       ³   ÀÄÄÄes2015
+³   ³       ³           index.js
+³   ³       ³           text.js
+³   ³       ³           
+³   ³       ÃÄÄÄstring-width
+³   ³       ³       index.d.ts
+³   ³       ³       index.js
+³   ³       ³       license
+³   ³       ³       package.json
+³   ³       ³       readme.md
+³   ³       ³       
+³   ³       ÀÄÄÄstrip-ansi
+³   ³               index.d.ts
+³   ³               index.js
+³   ³               license
+³   ³               package.json
+³   ³               readme.md
+³   ³               
+³   ÀÄÄÄyargs-parser
+³       ³   browser.js
+³       ³   CHANGELOG.md
+³       ³   LICENSE.txt
+³       ³   package.json
+³       ³   README.md
+³       ³   
+³       ÀÄÄÄbuild
+³           ³   index.cjs
+³           ³   
+³           ÀÄÄÄlib
+³                   index.js
+³                   string-utils.js
+³                   tokenize-arg-string.js
+³                   yargs-parser-types.js
+³                   yargs-parser.js
+³                   
+ÃÄÄÄpublic
+³   ³   .htaccess
+³   ³   favicon.ico
+³   ³   hot
+³   ³   index.php
+³   ³   robots.txt
+³   ³   
+³   ÀÄÄÄbuild
+³       ³   manifest.json
+³       ³   
+³       ÀÄÄÄassets
+³               app-C6A7nhvo.js
+³               app-Cy8ptAJZ.css
+³               ApplicationLogo-CvDzQYXS.js
+³               AuthenticatedLayout-LNsPKSfU.js
+³               ConfirmPassword-BwBvKcU_.js
+³               Dashboard-DlBonh7I.js
+³               DeleteUserForm-C924H5G-.js
+³               Edit-CR8-tKFh.js
+³               ForgotPassword-y5q0El3J.js
+³               GuestLayout-Bewg5sZs.js
+³               InputLabel-CTAOnhn-.js
+³               Login-BHoeo1Df.js
+³               PrimaryButton-Bxt25MOO.js
+³               Register-CEzMoyPG.js
+³               ResetPassword-Dbs4Zy4S.js
+³               TextInput-BJvsAXVe.js
+³               transition-BgX2nj67.js
+³               UpdatePasswordForm-4pGDGy4T.js
+³               UpdateProfileInformationForm-7F2PkoRW.js
+³               VerifyEmail-xnW9QnyU.js
+³               Welcome-BWsxUYKs.js
+³               
+ÃÄÄÄresources
+³   ÃÄÄÄcss
+³   ³       app.css
+³   ³       
+³   ÃÄÄÄjs
+³   ³   ³   app.jsx
+³   ³   ³   bootstrap.js
+³   ³   ³   
+³   ³   ÃÄÄÄAssets
+³   ³   ³       business.svg
+³   ³   ³       design.svg
+³   ³   ³       Element.svg
+³   ³   ³       Ellipse 2.jpg
+³   ³   ³       engineering.svg
+³   ³   ³       fianceIcon.svg
+³   ³   ³       googleIcon.svg
+³   ³   ³       human.svg
+³   ³   ³       Icon.svg
+³   ³   ³       Icon1.svg
+³   ³   ³       marketingIcon.svg
+³   ³   ³       next.svg
+³   ³   ³       nextblack.svg
+³   ³   ³       salesIcon.svg
+³   ³   ³       teknolojiIcon.svg
+³   ³   ³       Vector.svg
+³   ³   ³       
+³   ³   ÃÄÄÄComponents
+³   ³   ³   ³   ApplicationLogo.jsx
+³   ³   ³   ³   Checkbox.jsx
+³   ³   ³   ³   CustomInput.jsx
+³   ³   ³   ³   DangerButton.jsx
+³   ³   ³   ³   Dropdown.jsx
+³   ³   ³   ³   Footer.jsx
+³   ³   ³   ³   InputError.jsx
+³   ³   ³   ³   InputLabel.jsx
+³   ³   ³   ³   Modal.jsx
+³   ³   ³   ³   NavBar.jsx
+³   ³   ³   ³   NavLink.jsx
+³   ³   ³   ³   PrimaryButton.jsx
+³   ³   ³   ³   ResponsiveNavLink.jsx
+³   ³   ³   ³   SearchBar.jsx
+³   ³   ³   ³   SecondaryButton.jsx
+³   ³   ³   ³   TextInput.jsx
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄSidebar
+³   ³   ³           Sidebar.jsx
+³   ³   ³           
+³   ³   ÃÄÄÄLayouts
+³   ³   ³       AuthenticatedLayout.jsx
+³   ³   ³       GuestLayout.jsx
+³   ³   ³       
+³   ³   ÀÄÄÄPages
+³   ³       ³   Dashboard.jsx
+³   ³       ³   LandingPage.jsx
+³   ³       ³   Welcome.jsx
+³   ³       ³   
+³   ³       ÃÄÄÄAuth
+³   ³       ³       ConfirmPassword.jsx
+³   ³       ³       ForgotPassword.jsx
+³   ³       ³       Login.jsx
+³   ³       ³       Register.jsx
+³   ³       ³       ResetPassword.jsx
+³   ³       ³       VerifyEmail.jsx
+³   ³       ³       
+³   ³       ÃÄÄÄDashboard
+³   ³       ³   ÃÄÄÄCompany
+³   ³       ³   ³       Dashboard.jsx
+³   ³       ³   ³       
+³   ³       ³   ÀÄÄÄJobSeeker
+³   ³       ³           Dashboard.jsx
+³   ³       ³           
+³   ³       ÀÄÄÄProfile
+³   ³           ³   Edit.jsx
+³   ³           ³   
+³   ³           ÀÄÄÄPartials
+³   ³                   DeleteUserForm.jsx
+³   ³                   UpdatePasswordForm.jsx
+³   ³                   UpdateProfileInformationForm.jsx
+³   ³                   
+³   ÀÄÄÄviews
+³           app.blade.php
+³           
+ÃÄÄÄroutes
+³       auth.php
+³       console.php
+³       web.php
+³       
+ÃÄÄÄstorage
+³   ÃÄÄÄapp
+³   ³   ³   .gitignore
+³   ³   ³   
+³   ³   ÃÄÄÄprivate
+³   ³   ³       .gitignore
+³   ³   ³       
+³   ³   ÀÄÄÄpublic
+³   ³           .gitignore
+³   ³           
+³   ÃÄÄÄframework
+³   ³   ³   .gitignore
+³   ³   ³   
+³   ³   ÃÄÄÄcache
+³   ³   ³   ³   .gitignore
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄdata
+³   ³   ³           .gitignore
+³   ³   ³           
+³   ³   ÃÄÄÄsessions
+³   ³   ³       .gitignore
+³   ³   ³       
+³   ³   ÃÄÄÄtesting
+³   ³   ³       .gitignore
+³   ³   ³       
+³   ³   ÀÄÄÄviews
+³   ³           .gitignore
+³   ³           05e423de0fb4061d3fba0f5c8f5e41f3.php
+³   ³           0d8f3d877e43788dd03306d1d22a332d.php
+³   ³           2ff3719aceb49b4e039393439d836430.php
+³   ³           
+³   ÀÄÄÄlogs
+³           .gitignore
+³           laravel.log
+³           
+ÃÄÄÄtests
+³   ³   Pest.php
+³   ³   TestCase.php
+³   ³   
+³   ÃÄÄÄFeature
+³   ³   ³   ExampleTest.php
+³   ³   ³   ProfileTest.php
+³   ³   ³   
+³   ³   ÀÄÄÄAuth
+³   ³           AuthenticationTest.php
+³   ³           EmailVerificationTest.php
+³   ³           PasswordConfirmationTest.php
+³   ³           PasswordResetTest.php
+³   ³           PasswordUpdateTest.php
+³   ³           RegistrationTest.php
+³   ³           
+³   ÀÄÄÄUnit
+³           ExampleTest.php
+³           
+ÀÄÄÄvendor
+    ³   autoload.php
+    ³   pest-plugins.json
+    ³   
+    ÃÄÄÄbin
+    ³       carbon
+    ³       carbon.bat
+    ³       paratest
+    ³       paratest.bat
+    ³       paratest_for_phpstorm
+    ³       paratest_for_phpstorm.bat
+    ³       patch-type-declarations
+    ³       patch-type-declarations.bat
+    ³       pest
+    ³       pest.bat
+    ³       php-parse
+    ³       php-parse.bat
+    ³       phpunit
+    ³       phpunit.bat
+    ³       pint
+    ³       pint.bat
+    ³       psysh
+    ³       psysh.bat
+    ³       sail
+    ³       sail.bat
+    ³       var-dump-server
+    ³       var-dump-server.bat
+    ³       yaml-lint
+    ³       yaml-lint.bat
+    ³       
+    ÃÄÄÄbrianium
+    ³   ÀÄÄÄparatest
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   renovate.json
+    ³       ³   
+    ³       ÃÄÄÄbin
+    ³       ³       paratest
+    ³       ³       paratest_for_phpstorm
+    ³       ³       phpunit-wrapper.php
+    ³       ³       
+    ³       ÀÄÄÄsrc
+    ³           ³   Options.php
+    ³           ³   ParaTestCommand.php
+    ³           ³   RunnerInterface.php
+    ³           ³   
+    ³           ÃÄÄÄCoverage
+    ³           ³       CoverageMerger.php
+    ³           ³       
+    ³           ÃÄÄÄJUnit
+    ³           ³       LogMerger.php
+    ³           ³       MessageType.php
+    ³           ³       TestCase.php
+    ³           ³       TestCaseWithMessage.php
+    ³           ³       TestSuite.php
+    ³           ³       Writer.php
+    ³           ³       
+    ³           ÃÄÄÄUtil
+    ³           ³       PhpstormHelper.php
+    ³           ³       
+    ³           ÀÄÄÄWrapperRunner
+    ³                   ApplicationForWrapperWorker.php
+    ³                   ProgressPrinterOutput.php
+    ³                   ResultPrinter.php
+    ³                   SuiteLoader.php
+    ³                   WorkerCrashedException.php
+    ³                   WrapperRunner.php
+    ³                   WrapperWorker.php
+    ³                   
+    ÃÄÄÄbrick
+    ³   ÀÄÄÄmath
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   BigDecimal.php
+    ³           ³   BigInteger.php
+    ³           ³   BigNumber.php
+    ³           ³   BigRational.php
+    ³           ³   RoundingMode.php
+    ³           ³   
+    ³           ÃÄÄÄException
+    ³           ³       DivisionByZeroException.php
+    ³           ³       IntegerOverflowException.php
+    ³           ³       MathException.php
+    ³           ³       NegativeNumberException.php
+    ³           ³       NumberFormatException.php
+    ³           ³       RoundingNecessaryException.php
+    ³           ³       
+    ³           ÀÄÄÄInternal
+    ³               ³   Calculator.php
+    ³               ³   
+    ³               ÀÄÄÄCalculator
+    ³                       BcMathCalculator.php
+    ³                       GmpCalculator.php
+    ³                       NativeCalculator.php
+    ³                       
+    ÃÄÄÄcarbonphp
+    ³   ÀÄÄÄcarbon-doctrine-types
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ÀÄÄÄCarbon
+    ³               ÀÄÄÄDoctrine
+    ³                       CarbonDoctrineType.php
+    ³                       CarbonImmutableType.php
+    ³                       CarbonType.php
+    ³                       CarbonTypeConverter.php
+    ³                       DateTimeDefaultPrecision.php
+    ³                       DateTimeImmutableType.php
+    ³                       DateTimeType.php
+    ³                       
+    ÃÄÄÄcomposer
+    ³       autoload_classmap.php
+    ³       autoload_files.php
+    ³       autoload_namespaces.php
+    ³       autoload_psr4.php
+    ³       autoload_real.php
+    ³       autoload_static.php
+    ³       ClassLoader.php
+    ³       installed.json
+    ³       installed.php
+    ³       InstalledVersions.php
+    ³       LICENSE
+    ³       platform_check.php
+    ³       
+    ÃÄÄÄdflydev
+    ³   ÀÄÄÄdot-access-data
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   Data.php
+    ³           ³   DataInterface.php
+    ³           ³   Util.php
+    ³           ³   
+    ³           ÀÄÄÄException
+    ³                   DataException.php
+    ³                   InvalidPathException.php
+    ³                   MissingPathException.php
+    ³                   
+    ÃÄÄÄdoctrine
+    ³   ÃÄÄÄdeprecations
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÀÄÄÄlib
+    ³   ³       ÀÄÄÄDoctrine
+    ³   ³           ÀÄÄÄDeprecations
+    ³   ³               ³   Deprecation.php
+    ³   ³               ³   
+    ³   ³               ÀÄÄÄPHPUnit
+    ³   ³                       VerifyDeprecations.php
+    ³   ³                       
+    ³   ÃÄÄÄinflector
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÃÄÄÄdocs
+    ³   ³   ³   ÀÄÄÄen
+    ³   ³   ³           index.rst
+    ³   ³   ³           
+    ³   ³   ÀÄÄÄlib
+    ³   ³       ÀÄÄÄDoctrine
+    ³   ³           ÀÄÄÄInflector
+    ³   ³               ³   CachedWordInflector.php
+    ³   ³               ³   GenericLanguageInflectorFactory.php
+    ³   ³               ³   Inflector.php
+    ³   ³               ³   InflectorFactory.php
+    ³   ³               ³   Language.php
+    ³   ³               ³   LanguageInflectorFactory.php
+    ³   ³               ³   NoopWordInflector.php
+    ³   ³               ³   RulesetInflector.php
+    ³   ³               ³   WordInflector.php
+    ³   ³               ³   
+    ³   ³               ÀÄÄÄRules
+    ³   ³                   ³   Pattern.php
+    ³   ³                   ³   Patterns.php
+    ³   ³                   ³   Ruleset.php
+    ³   ³                   ³   Substitution.php
+    ³   ³                   ³   Substitutions.php
+    ³   ³                   ³   Transformation.php
+    ³   ³                   ³   Transformations.php
+    ³   ³                   ³   Word.php
+    ³   ³                   ³   
+    ³   ³                   ÃÄÄÄEnglish
+    ³   ³                   ³       Inflectible.php
+    ³   ³                   ³       InflectorFactory.php
+    ³   ³                   ³       Rules.php
+    ³   ³                   ³       Uninflected.php
+    ³   ³                   ³       
+    ³   ³                   ÃÄÄÄFrench
+    ³   ³                   ³       Inflectible.php
+    ³   ³                   ³       InflectorFactory.php
+    ³   ³                   ³       Rules.php
+    ³   ³                   ³       Uninflected.php
+    ³   ³                   ³       
+    ³   ³                   ÃÄÄÄNorwegianBokmal
+    ³   ³                   ³       Inflectible.php
+    ³   ³                   ³       InflectorFactory.php
+    ³   ³                   ³       Rules.php
+    ³   ³                   ³       Uninflected.php
+    ³   ³                   ³       
+    ³   ³                   ÃÄÄÄPortuguese
+    ³   ³                   ³       Inflectible.php
+    ³   ³                   ³       InflectorFactory.php
+    ³   ³                   ³       Rules.php
+    ³   ³                   ³       Uninflected.php
+    ³   ³                   ³       
+    ³   ³                   ÃÄÄÄSpanish
+    ³   ³                   ³       Inflectible.php
+    ³   ³                   ³       InflectorFactory.php
+    ³   ³                   ³       Rules.php
+    ³   ³                   ³       Uninflected.php
+    ³   ³                   ³       
+    ³   ³                   ÀÄÄÄTurkish
+    ³   ³                           Inflectible.php
+    ³   ³                           InflectorFactory.php
+    ³   ³                           Rules.php
+    ³   ³                           Uninflected.php
+    ³   ³                           
+    ³   ÀÄÄÄlexer
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   UPGRADE.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³               AbstractLexer.php
+    ³               Token.php
+    ³               
+    ÃÄÄÄdragonmantank
+    ³   ÀÄÄÄcron-expression
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ÀÄÄÄCron
+    ³                   AbstractField.php
+    ³                   CronExpression.php
+    ³                   DayOfMonthField.php
+    ³                   DayOfWeekField.php
+    ³                   FieldFactory.php
+    ³                   FieldFactoryInterface.php
+    ³                   FieldInterface.php
+    ³                   HoursField.php
+    ³                   MinutesField.php
+    ³                   MonthField.php
+    ³                   
+    ÃÄÄÄegulias
+    ³   ÀÄÄÄemail-validator
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   CONTRIBUTING.md
+    ³       ³   LICENSE
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   EmailLexer.php
+    ³           ³   EmailParser.php
+    ³           ³   EmailValidator.php
+    ³           ³   MessageIDParser.php
+    ³           ³   Parser.php
+    ³           ³   
+    ³           ÃÄÄÄParser
+    ³           ³   ³   Comment.php
+    ³           ³   ³   DomainLiteral.php
+    ³           ³   ³   DomainPart.php
+    ³           ³   ³   DoubleQuote.php
+    ³           ³   ³   FoldingWhiteSpace.php
+    ³           ³   ³   IDLeftPart.php
+    ³           ³   ³   IDRightPart.php
+    ³           ³   ³   LocalPart.php
+    ³           ³   ³   PartParser.php
+    ³           ³   ³   
+    ³           ³   ÀÄÄÄCommentStrategy
+    ³           ³           CommentStrategy.php
+    ³           ³           DomainComment.php
+    ³           ³           LocalComment.php
+    ³           ³           
+    ³           ÃÄÄÄResult
+    ³           ³   ³   InvalidEmail.php
+    ³           ³   ³   MultipleErrors.php
+    ³           ³   ³   Result.php
+    ³           ³   ³   SpoofEmail.php
+    ³           ³   ³   ValidEmail.php
+    ³           ³   ³   
+    ³           ³   ÀÄÄÄReason
+    ³           ³           AtextAfterCFWS.php
+    ³           ³           CharNotAllowed.php
+    ³           ³           CommaInDomain.php
+    ³           ³           CommentsInIDRight.php
+    ³           ³           ConsecutiveAt.php
+    ³           ³           ConsecutiveDot.php
+    ³           ³           CRLFAtTheEnd.php
+    ³           ³           CRLFX2.php
+    ³           ³           CRNoLF.php
+    ³           ³           DetailedReason.php
+    ³           ³           DomainAcceptsNoMail.php
+    ³           ³           DomainHyphened.php
+    ³           ³           DomainTooLong.php
+    ³           ³           DotAtEnd.php
+    ³           ³           DotAtStart.php
+    ³           ³           EmptyReason.php
+    ³           ³           ExceptionFound.php
+    ³           ³           ExpectingATEXT.php
+    ³           ³           ExpectingCTEXT.php
+    ³           ³           ExpectingDomainLiteralClose.php
+    ³           ³           ExpectingDTEXT.php
+    ³           ³           LabelTooLong.php
+    ³           ³           LocalOrReservedDomain.php
+    ³           ³           NoDNSRecord.php
+    ³           ³           NoDomainPart.php
+    ³           ³           NoLocalPart.php
+    ³           ³           Reason.php
+    ³           ³           RFCWarnings.php
+    ³           ³           SpoofEmail.php
+    ³           ³           UnableToGetDNSRecord.php
+    ³           ³           UnclosedComment.php
+    ³           ³           UnclosedQuotedString.php
+    ³           ³           UnOpenedComment.php
+    ³           ³           UnusualElements.php
+    ³           ³           
+    ³           ÃÄÄÄValidation
+    ³           ³   ³   DNSCheckValidation.php
+    ³           ³   ³   DNSGetRecordWrapper.php
+    ³           ³   ³   DNSRecords.php
+    ³           ³   ³   EmailValidation.php
+    ³           ³   ³   MessageIDValidation.php
+    ³           ³   ³   MultipleValidationWithAnd.php
+    ³           ³   ³   NoRFCWarningsValidation.php
+    ³           ³   ³   RFCValidation.php
+    ³           ³   ³   
+    ³           ³   ÃÄÄÄException
+    ³           ³   ³       EmptyValidationList.php
+    ³           ³   ³       
+    ³           ³   ÀÄÄÄExtra
+    ³           ³           SpoofCheckValidation.php
+    ³           ³           
+    ³           ÀÄÄÄWarning
+    ³                   AddressLiteral.php
+    ³                   CFWSNearAt.php
+    ³                   CFWSWithFWS.php
+    ³                   Comment.php
+    ³                   DeprecatedComment.php
+    ³                   DomainLiteral.php
+    ³                   EmailTooLong.php
+    ³                   IPV6BadChar.php
+    ³                   IPV6ColonEnd.php
+    ³                   IPV6ColonStart.php
+    ³                   IPV6Deprecated.php
+    ³                   IPV6DoubleColon.php
+    ³                   IPV6GroupCount.php
+    ³                   IPV6MaxGroups.php
+    ³                   LocalTooLong.php
+    ³                   NoDNSMXRecord.php
+    ³                   ObsoleteDTEXT.php
+    ³                   QuotedPart.php
+    ³                   QuotedString.php
+    ³                   TLD.php
+    ³                   Warning.php
+    ³                   
+    ÃÄÄÄfakerphp
+    ³   ÀÄÄÄfaker
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   rector-migrate.php
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   autoload.php
+    ³           ³   
+    ³           ÀÄÄÄFaker
+    ³               ³   ChanceGenerator.php
+    ³               ³   DefaultGenerator.php
+    ³               ³   Documentor.php
+    ³               ³   Factory.php
+    ³               ³   Generator.php
+    ³               ³   UniqueGenerator.php
+    ³               ³   ValidGenerator.php
+    ³               ³   
+    ³               ÃÄÄÄCalculator
+    ³               ³       Ean.php
+    ³               ³       Iban.php
+    ³               ³       Inn.php
+    ³               ³       Isbn.php
+    ³               ³       Luhn.php
+    ³               ³       TCNo.php
+    ³               ³       
+    ³               ÃÄÄÄContainer
+    ³               ³       Container.php
+    ³               ³       ContainerBuilder.php
+    ³               ³       ContainerException.php
+    ³               ³       ContainerInterface.php
+    ³               ³       NotInContainerException.php
+    ³               ³       
+    ³               ÃÄÄÄCore
+    ³               ³       Barcode.php
+    ³               ³       Blood.php
+    ³               ³       Color.php
+    ³               ³       Coordinates.php
+    ³               ³       DateTime.php
+    ³               ³       File.php
+    ³               ³       Number.php
+    ³               ³       Uuid.php
+    ³               ³       Version.php
+    ³               ³       
+    ³               ÃÄÄÄExtension
+    ³               ³       AddressExtension.php
+    ³               ³       BarcodeExtension.php
+    ³               ³       BloodExtension.php
+    ³               ³       ColorExtension.php
+    ³               ³       CompanyExtension.php
+    ³               ³       CountryExtension.php
+    ³               ³       DateTimeExtension.php
+    ³               ³       Extension.php
+    ³               ³       ExtensionNotFound.php
+    ³               ³       FileExtension.php
+    ³               ³       GeneratorAwareExtension.php
+    ³               ³       GeneratorAwareExtensionTrait.php
+    ³               ³       Helper.php
+    ³               ³       NumberExtension.php
+    ³               ³       PersonExtension.php
+    ³               ³       PhoneNumberExtension.php
+    ³               ³       UuidExtension.php
+    ³               ³       VersionExtension.php
+    ³               ³       
+    ³               ÃÄÄÄGuesser
+    ³               ³       Name.php
+    ³               ³       
+    ³               ÃÄÄÄORM
+    ³               ³   ÃÄÄÄCakePHP
+    ³               ³   ³       ColumnTypeGuesser.php
+    ³               ³   ³       EntityPopulator.php
+    ³               ³   ³       Populator.php
+    ³               ³   ³       
+    ³               ³   ÃÄÄÄDoctrine
+    ³               ³   ³       backward-compatibility.php
+    ³               ³   ³       ColumnTypeGuesser.php
+    ³               ³   ³       EntityPopulator.php
+    ³               ³   ³       Populator.php
+    ³               ³   ³       
+    ³               ³   ÃÄÄÄMandango
+    ³               ³   ³       ColumnTypeGuesser.php
+    ³               ³   ³       EntityPopulator.php
+    ³               ³   ³       Populator.php
+    ³               ³   ³       
+    ³               ³   ÃÄÄÄPropel
+    ³               ³   ³       ColumnTypeGuesser.php
+    ³               ³   ³       EntityPopulator.php
+    ³               ³   ³       Populator.php
+    ³               ³   ³       
+    ³               ³   ÃÄÄÄPropel2
+    ³               ³   ³       ColumnTypeGuesser.php
+    ³               ³   ³       EntityPopulator.php
+    ³               ³   ³       Populator.php
+    ³               ³   ³       
+    ³               ³   ÀÄÄÄSpot
+    ³               ³           ColumnTypeGuesser.php
+    ³               ³           EntityPopulator.php
+    ³               ³           Populator.php
+    ³               ³           
+    ³               ÀÄÄÄProvider
+    ³                   ³   Address.php
+    ³                   ³   Barcode.php
+    ³                   ³   Base.php
+    ³                   ³   Biased.php
+    ³                   ³   Color.php
+    ³                   ³   Company.php
+    ³                   ³   DateTime.php
+    ³                   ³   File.php
+    ³                   ³   HtmlLorem.php
+    ³                   ³   Image.php
+    ³                   ³   Internet.php
+    ³                   ³   Lorem.php
+    ³                   ³   Medical.php
+    ³                   ³   Miscellaneous.php
+    ³                   ³   Payment.php
+    ³                   ³   Person.php
+    ³                   ³   PhoneNumber.php
+    ³                   ³   Text.php
+    ³                   ³   UserAgent.php
+    ³                   ³   Uuid.php
+    ³                   ³   
+    ³                   ÃÄÄÄar_EG
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄar_JO
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄar_SA
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄat_AT
+    ³                   ³       Payment.php
+    ³                   ³       
+    ³                   ÃÄÄÄbg_BG
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄbn_BD
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Utils.php
+    ³                   ³       
+    ³                   ÃÄÄÄcs_CZ
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       DateTime.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄda_DK
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄde_AT
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄde_CH
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄde_DE
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄel_CY
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄel_GR
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_AU
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_CA
+    ³                   ³       Address.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_GB
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_HK
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_IN
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_NG
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_NZ
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_PH
+    ³                   ³       Address.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_SG
+    ³                   ³       Address.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_UG
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_US
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄen_ZA
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄes_AR
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄes_ES
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄes_PE
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄes_VE
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄet_EE
+    ³                   ³       Person.php
+    ³                   ³       
+    ³                   ÃÄÄÄfa_IR
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄfi_FI
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄfr_BE
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄfr_CA
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Person.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄfr_CH
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄfr_FR
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄhe_IL
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄhr_HR
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄhu_HU
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄhy_AM
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄid_ID
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄis_IS
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄit_CH
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄit_IT
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄja_JP
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄka_GE
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       DateTime.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄkk_KZ
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄko_KR
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄlt_LT
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄlv_LV
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄme_ME
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄmn_MN
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄms_MY
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Miscellaneous.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄnb_NO
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄne_NP
+    ³                   ³       Address.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄnl_BE
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄnl_NL
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄpl_PL
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       LicensePlate.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄpt_BR
+    ³                   ³       Address.php
+    ³                   ³       check_digit.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄpt_PT
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄro_MD
+    ³                   ³       Address.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄro_RO
+    ³                   ³       Address.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄru_RU
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄsk_SK
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄsl_SI
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄsr_Cyrl_RS
+    ³                   ³       Address.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       
+    ³                   ÃÄÄÄsr_Latn_RS
+    ³                   ³       Address.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       
+    ³                   ÃÄÄÄsr_RS
+    ³                   ³       Address.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       
+    ³                   ÃÄÄÄsv_SE
+    ³                   ³       Address.php
+    ³                   ³       Company.php
+    ³                   ³       Municipality.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄth_TH
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄtr_TR
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       DateTime.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄuk_UA
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       Text.php
+    ³                   ³       
+    ³                   ÃÄÄÄvi_VN
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Internet.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÃÄÄÄzh_CN
+    ³                   ³       Address.php
+    ³                   ³       Color.php
+    ³                   ³       Company.php
+    ³                   ³       DateTime.php
+    ³                   ³       Internet.php
+    ³                   ³       Payment.php
+    ³                   ³       Person.php
+    ³                   ³       PhoneNumber.php
+    ³                   ³       
+    ³                   ÀÄÄÄzh_TW
+    ³                           Address.php
+    ³                           Color.php
+    ³                           Company.php
+    ³                           DateTime.php
+    ³                           Internet.php
+    ³                           Payment.php
+    ³                           Person.php
+    ³                           PhoneNumber.php
+    ³                           Text.php
+    ³                           
+    ÃÄÄÄfidry
+    ³   ÀÄÄÄcpu-core-counter
+    ³       ³   .envrc
+    ³       ³   composer.json
+    ³       ³   LICENSE.md
+    ³       ³   README.md
+    ³       ³   
+    ³       ÃÄÄÄbin
+    ³       ³       diagnose.php
+    ³       ³       execute.php
+    ³       ³       trace.php
+    ³       ³       
+    ³       ÀÄÄÄsrc
+    ³           ³   CpuCoreCounter.php
+    ³           ³   Diagnoser.php
+    ³           ³   NumberOfCpuCoreNotFound.php
+    ³           ³   ParallelisationResult.php
+    ³           ³   
+    ³           ÃÄÄÄExecutor
+    ³           ³       ProcessExecutor.php
+    ³           ³       ProcOpenExecutor.php
+    ³           ³       
+    ³           ÀÄÄÄFinder
+    ³                   CmiCmdletLogicalFinder.php
+    ³                   CmiCmdletPhysicalFinder.php
+    ³                   CpuCoreFinder.php
+    ³                   CpuInfoFinder.php
+    ³                   DummyCpuCoreFinder.php
+    ³                   EnvVariableFinder.php
+    ³                   FinderRegistry.php
+    ³                   HwLogicalFinder.php
+    ³                   HwPhysicalFinder.php
+    ³                   LscpuLogicalFinder.php
+    ³                   LscpuPhysicalFinder.php
+    ³                   NProcessorFinder.php
+    ³                   NProcFinder.php
+    ³                   NullCpuCoreFinder.php
+    ³                   OnlyInPowerShellFinder.php
+    ³                   OnlyOnOSFamilyFinder.php
+    ³                   ProcOpenBasedFinder.php
+    ³                   SkipOnOSFamilyFinder.php
+    ³                   WindowsRegistryLogicalFinder.php
+    ³                   WmicLogicalFinder.php
+    ³                   WmicPhysicalFinder.php
+    ³                   _NProcessorFinder.php
+    ³                   
+    ÃÄÄÄfilp
+    ³   ÀÄÄÄwhoops
+    ³       ³   .mailmap
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE.md
+    ³       ³   SECURITY.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ÀÄÄÄWhoops
+    ³               ³   Run.php
+    ³               ³   RunInterface.php
+    ³               ³   
+    ³               ÃÄÄÄException
+    ³               ³       ErrorException.php
+    ³               ³       Formatter.php
+    ³               ³       Frame.php
+    ³               ³       FrameCollection.php
+    ³               ³       Inspector.php
+    ³               ³       
+    ³               ÃÄÄÄHandler
+    ³               ³       CallbackHandler.php
+    ³               ³       Handler.php
+    ³               ³       HandlerInterface.php
+    ³               ³       JsonResponseHandler.php
+    ³               ³       PlainTextHandler.php
+    ³               ³       PrettyPageHandler.php
+    ³               ³       XmlResponseHandler.php
+    ³               ³       
+    ³               ÃÄÄÄInspector
+    ³               ³       InspectorFactory.php
+    ³               ³       InspectorFactoryInterface.php
+    ³               ³       InspectorInterface.php
+    ³               ³       
+    ³               ÃÄÄÄResources
+    ³               ³   ÃÄÄÄcss
+    ³               ³   ³       prism.css
+    ³               ³   ³       whoops.base.css
+    ³               ³   ³       
+    ³               ³   ÃÄÄÄjs
+    ³               ³   ³       clipboard.min.js
+    ³               ³   ³       prism.js
+    ³               ³   ³       whoops.base.js
+    ³               ³   ³       zepto.min.js
+    ³               ³   ³       
+    ³               ³   ÀÄÄÄviews
+    ³               ³           env_details.html.php
+    ³               ³           frames_container.html.php
+    ³               ³           frames_description.html.php
+    ³               ³           frame_code.html.php
+    ³               ³           frame_list.html.php
+    ³               ³           header.html.php
+    ³               ³           header_outer.html.php
+    ³               ³           layout.html.php
+    ³               ³           panel_details.html.php
+    ³               ³           panel_details_outer.html.php
+    ³               ³           panel_left.html.php
+    ³               ³           panel_left_outer.html.php
+    ³               ³           
+    ³               ÀÄÄÄUtil
+    ³                       HtmlDumperOutput.php
+    ³                       Misc.php
+    ³                       SystemFacade.php
+    ³                       TemplateHelper.php
+    ³                       
+    ÃÄÄÄfruitcake
+    ³   ÀÄÄÄphp-cors
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   CorsService.php
+    ³           ³   
+    ³           ÀÄÄÄExceptions
+    ³                   InvalidOptionException.php
+    ³                   
+    ÃÄÄÄgraham-campbell
+    ³   ÀÄÄÄresult-type
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³               Error.php
+    ³               Result.php
+    ³               Success.php
+    ³               
+    ÃÄÄÄguzzlehttp
+    ³   ÃÄÄÄguzzle
+    ³   ³   ³   CHANGELOG.md
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE
+    ³   ³   ³   README.md
+    ³   ³   ³   UPGRADING.md
+    ³   ³   ³   
+    ³   ³   ÀÄÄÄsrc
+    ³   ³       ³   BodySummarizer.php
+    ³   ³       ³   BodySummarizerInterface.php
+    ³   ³       ³   Client.php
+    ³   ³       ³   ClientInterface.php
+    ³   ³       ³   ClientTrait.php
+    ³   ³       ³   functions.php
+    ³   ³       ³   functions_include.php
+    ³   ³       ³   HandlerStack.php
+    ³   ³       ³   MessageFormatter.php
+    ³   ³       ³   MessageFormatterInterface.php
+    ³   ³       ³   Middleware.php
+    ³   ³       ³   Pool.php
+    ³   ³       ³   PrepareBodyMiddleware.php
+    ³   ³       ³   RedirectMiddleware.php
+    ³   ³       ³   RequestOptions.php
+    ³   ³       ³   RetryMiddleware.php
+    ³   ³       ³   TransferStats.php
+    ³   ³       ³   Utils.php
+    ³   ³       ³   
+    ³   ³       ÃÄÄÄCookie
+    ³   ³       ³       CookieJar.php
+    ³   ³       ³       CookieJarInterface.php
+    ³   ³       ³       FileCookieJar.php
+    ³   ³       ³       SessionCookieJar.php
+    ³   ³       ³       SetCookie.php
+    ³   ³       ³       
+    ³   ³       ÃÄÄÄException
+    ³   ³       ³       BadResponseException.php
+    ³   ³       ³       ClientException.php
+    ³   ³       ³       ConnectException.php
+    ³   ³       ³       GuzzleException.php
+    ³   ³       ³       InvalidArgumentException.php
+    ³   ³       ³       RequestException.php
+    ³   ³       ³       ServerException.php
+    ³   ³       ³       TooManyRedirectsException.php
+    ³   ³       ³       TransferException.php
+    ³   ³       ³       
+    ³   ³       ÀÄÄÄHandler
+    ³   ³               CurlFactory.php
+    ³   ³               CurlFactoryInterface.php
+    ³   ³               CurlHandler.php
+    ³   ³               CurlMultiHandler.php
+    ³   ³               EasyHandle.php
+    ³   ³               HeaderProcessor.php
+    ³   ³               MockHandler.php
+    ³   ³               Proxy.php
+    ³   ³               StreamHandler.php
+    ³   ³               
+    ³   ÃÄÄÄpromises
+    ³   ³   ³   CHANGELOG.md
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÀÄÄÄsrc
+    ³   ³           AggregateException.php
+    ³   ³           CancellationException.php
+    ³   ³           Coroutine.php
+    ³   ³           Create.php
+    ³   ³           Each.php
+    ³   ³           EachPromise.php
+    ³   ³           FulfilledPromise.php
+    ³   ³           Is.php
+    ³   ³           Promise.php
+    ³   ³           PromiseInterface.php
+    ³   ³           PromisorInterface.php
+    ³   ³           RejectedPromise.php
+    ³   ³           RejectionException.php
+    ³   ³           TaskQueue.php
+    ³   ³           TaskQueueInterface.php
+    ³   ³           Utils.php
+    ³   ³           
+    ³   ÃÄÄÄpsr7
+    ³   ³   ³   CHANGELOG.md
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÀÄÄÄsrc
+    ³   ³       ³   AppendStream.php
+    ³   ³       ³   BufferStream.php
+    ³   ³       ³   CachingStream.php
+    ³   ³       ³   DroppingStream.php
+    ³   ³       ³   FnStream.php
+    ³   ³       ³   Header.php
+    ³   ³       ³   HttpFactory.php
+    ³   ³       ³   InflateStream.php
+    ³   ³       ³   LazyOpenStream.php
+    ³   ³       ³   LimitStream.php
+    ³   ³       ³   Message.php
+    ³   ³       ³   MessageTrait.php
+    ³   ³       ³   MimeType.php
+    ³   ³       ³   MultipartStream.php
+    ³   ³       ³   NoSeekStream.php
+    ³   ³       ³   PumpStream.php
+    ³   ³       ³   Query.php
+    ³   ³       ³   Request.php
+    ³   ³       ³   Response.php
+    ³   ³       ³   Rfc7230.php
+    ³   ³       ³   ServerRequest.php
+    ³   ³       ³   Stream.php
+    ³   ³       ³   StreamDecoratorTrait.php
+    ³   ³       ³   StreamWrapper.php
+    ³   ³       ³   UploadedFile.php
+    ³   ³       ³   Uri.php
+    ³   ³       ³   UriComparator.php
+    ³   ³       ³   UriNormalizer.php
+    ³   ³       ³   UriResolver.php
+    ³   ³       ³   Utils.php
+    ³   ³       ³   
+    ³   ³       ÀÄÄÄException
+    ³   ³               MalformedUriException.php
+    ³   ³               
+    ³   ÀÄÄÄuri-template
+    ³       ³   CHANGELOG.md
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   README.md
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³               UriTemplate.php
+    ³               
+    ÃÄÄÄhamcrest
+    ³   ÀÄÄÄhamcrest-php
+    ³       ³   .coveralls.yml
+    ³       ³   .gitignore
+    ³       ³   .gush.yml
+    ³       ³   .travis.yml
+    ³       ³   CHANGES.txt
+    ³       ³   composer.json
+    ³       ³   LICENSE.txt
+    ³       ³   README.md
+    ³       ³   
+    ³       ÃÄÄÄ.github
+    ³       ³   ÀÄÄÄworkflows
+    ³       ³           tests.yml
+    ³       ³           
+    ³       ÃÄÄÄgenerator
+    ³       ³   ³   FactoryCall.php
+    ³       ³   ³   FactoryClass.php
+    ³       ³   ³   FactoryFile.php
+    ³       ³   ³   FactoryGenerator.php
+    ³       ³   ³   FactoryMethod.php
+    ³       ³   ³   FactoryParameter.php
+    ³       ³   ³   GlobalFunctionFile.php
+    ³       ³   ³   run.php
+    ³       ³   ³   StaticMethodFile.php
+    ³       ³   ³   
+    ³       ³   ÀÄÄÄparts
+    ³       ³           file_header.txt
+    ³       ³           functions_footer.txt
+    ³       ³           functions_header.txt
+    ³       ³           functions_imports.txt
+    ³       ³           matchers_footer.txt
+    ³       ³           matchers_header.txt
+    ³       ³           matchers_imports.txt
+    ³       ³           
+    ³       ÃÄÄÄhamcrest
+    ³       ³   ³   Hamcrest.php
+    ³       ³   ³   
+    ³       ³   ÀÄÄÄHamcrest
+    ³       ³       ³   AssertionError.php
+    ³       ³       ³   BaseDescription.php
+    ³       ³       ³   BaseMatcher.php
+    ³       ³       ³   Description.php
+    ³       ³       ³   DiagnosingMatcher.php
+    ³       ³       ³   FeatureMatcher.php
+    ³       ³       ³   Matcher.php
+    ³       ³       ³   MatcherAssert.php
+    ³       ³       ³   Matchers.php
+    ³       ³       ³   NullDescription.php
+    ³       ³       ³   SelfDescribing.php
+    ³       ³       ³   StringDescription.php
+    ³       ³       ³   TypeSafeDiagnosingMatcher.php
+    ³       ³       ³   TypeSafeMatcher.php
+    ³       ³       ³   Util.php
+    ³       ³       ³   
+    ³       ³       ÃÄÄÄArrays
+    ³       ³       ³       IsArray.php
+    ³       ³       ³       IsArrayContaining.php
+    ³       ³       ³       IsArrayContainingInAnyOrder.php
+    ³       ³       ³       IsArrayContainingInOrder.php
+    ³       ³       ³       IsArrayContainingKey.php
+    ³       ³       ³       IsArrayContainingKeyValuePair.php
+    ³       ³       ³       IsArrayWithSize.php
+    ³       ³       ³       MatchingOnce.php
+    ³       ³       ³       SeriesMatchingOnce.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄCollection
+    ³       ³       ³       IsEmptyTraversable.php
+    ³       ³       ³       IsTraversableWithSize.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄCore
+    ³       ³       ³       AllOf.php
+    ³       ³       ³       AnyOf.php
+    ³       ³       ³       CombinableMatcher.php
+    ³       ³       ³       DescribedAs.php
+    ³       ³       ³       Every.php
+    ³       ³       ³       HasToString.php
+    ³       ³       ³       Is.php
+    ³       ³       ³       IsAnything.php
+    ³       ³       ³       IsCollectionContaining.php
+    ³       ³       ³       IsEqual.php
+    ³       ³       ³       IsIdentical.php
+    ³       ³       ³       IsInstanceOf.php
+    ³       ³       ³       IsNot.php
+    ³       ³       ³       IsNull.php
+    ³       ³       ³       IsSame.php
+    ³       ³       ³       IsTypeOf.php
+    ³       ³       ³       Set.php
+    ³       ³       ³       ShortcutCombination.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄInternal
+    ³       ³       ³       SelfDescribingValue.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄNumber
+    ³       ³       ³       IsCloseTo.php
+    ³       ³       ³       OrderingComparison.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄText
+    ³       ³       ³       IsEmptyString.php
+    ³       ³       ³       IsEqualIgnoringCase.php
+    ³       ³       ³       IsEqualIgnoringWhiteSpace.php
+    ³       ³       ³       MatchesPattern.php
+    ³       ³       ³       StringContains.php
+    ³       ³       ³       StringContainsIgnoringCase.php
+    ³       ³       ³       StringContainsInOrder.php
+    ³       ³       ³       StringEndsWith.php
+    ³       ³       ³       StringStartsWith.php
+    ³       ³       ³       SubstringMatcher.php
+    ³       ³       ³       
+    ³       ³       ÃÄÄÄType
+    ³       ³       ³       IsArray.php
+    ³       ³       ³       IsBoolean.php
+    ³       ³       ³       IsCallable.php
+    ³       ³       ³       IsDouble.php
+    ³       ³       ³       IsInteger.php
+    ³       ³       ³       IsNumeric.php
+    ³       ³       ³       IsObject.php
+    ³       ³       ³       IsResource.php
+    ³       ³       ³       IsScalar.php
+    ³       ³       ³       IsString.php
+    ³       ³       ³       
+    ³       ³       ÀÄÄÄXml
+    ³       ³               HasXPath.php
+    ³       ³               
+    ³       ÀÄÄÄtests
+    ³           ³   bootstrap.php
+    ³           ³   phpunit.xml.dist
+    ³           ³   
+    ³           ÀÄÄÄHamcrest
+    ³               ³   AbstractMatcherTest.php
+    ³               ³   BaseMatcherTest.php
+    ³               ³   FeatureMatcherTest.php
+    ³               ³   InvokedMatcherTest.php
+    ³               ³   MatcherAssertTest.php
+    ³               ³   StringDescriptionTest.php
+    ³               ³   UtilTest.php
+    ³               ³   
+    ³               ÃÄÄÄArray
+    ³               ³       IsArrayContainingInAnyOrderTest.php
+    ³               ³       IsArrayContainingInOrderTest.php
+    ³               ³       IsArrayContainingKeyTest.php
+    ³               ³       IsArrayContainingKeyValuePairTest.php
+    ³               ³       IsArrayContainingTest.php
+    ³               ³       IsArrayTest.php
+    ³               ³       IsArrayWithSizeTest.php
+    ³               ³       
+    ³               ÃÄÄÄCollection
+    ³               ³       IsEmptyTraversableTest.php
+    ³               ³       IsTraversableWithSizeTest.php
+    ³               ³       
+    ³               ÃÄÄÄCore
+    ³               ³       AllOfTest.php
+    ³               ³       AnyOfTest.php
+    ³               ³       CombinableMatcherTest.php
+    ³               ³       DescribedAsTest.php
+    ³               ³       EveryTest.php
+    ³               ³       HasToStringTest.php
+    ³               ³       IsAnythingTest.php
+    ³               ³       IsCollectionContainingTest.php
+    ³               ³       IsEqualTest.php
+    ³               ³       IsIdenticalTest.php
+    ³               ³       IsInstanceOfTest.php
+    ³               ³       IsNotTest.php
+    ³               ³       IsNullTest.php
+    ³               ³       IsSameTest.php
+    ³               ³       IsTest.php
+    ³               ³       IsTypeOfTest.php
+    ³               ³       SampleBaseClass.php
+    ³               ³       SampleSubClass.php
+    ³               ³       SetTest.php
+    ³               ³       
+    ³               ÃÄÄÄNumber
+    ³               ³       IsCloseToTest.php
+    ³               ³       OrderingComparisonTest.php
+    ³               ³       
+    ³               ÃÄÄÄText
+    ³               ³       IsEmptyStringTest.php
+    ³               ³       IsEqualIgnoringCaseTest.php
+    ³               ³       IsEqualIgnoringWhiteSpaceTest.php
+    ³               ³       MatchesPatternTest.php
+    ³               ³       StringContainsIgnoringCaseTest.php
+    ³               ³       StringContainsInOrderTest.php
+    ³               ³       StringContainsTest.php
+    ³               ³       StringEndsWithTest.php
+    ³               ³       StringStartsWithTest.php
+    ³               ³       
+    ³               ÃÄÄÄType
+    ³               ³       IsArrayTest.php
+    ³               ³       IsBooleanTest.php
+    ³               ³       IsCallableTest.php
+    ³               ³       IsDoubleTest.php
+    ³               ³       IsIntegerTest.php
+    ³               ³       IsNumericTest.php
+    ³               ³       IsObjectTest.php
+    ³               ³       IsResourceTest.php
+    ³               ³       IsScalarTest.php
+    ³               ³       IsStringTest.php
+    ³               ³       
+    ³               ÀÄÄÄXml
+    ³                       HasXPathTest.php
+    ³                       
+    ÃÄÄÄinertiajs
+    ³   ÀÄÄÄinertia-laravel
+    ³       ³   composer.json
+    ³       ³   helpers.php
+    ³       ³   LICENSE.md
+    ³       ³   _ide_helpers.php
+    ³       ³   
+    ³       ÃÄÄÄconfig
+    ³       ³       inertia.php
+    ³       ³       
+    ³       ÃÄÄÄsrc
+    ³       ³   ³   AlwaysProp.php
+    ³       ³   ³   Controller.php
+    ³       ³   ³   Directive.php
+    ³       ³   ³   Inertia.php
+    ³       ³   ³   LazyProp.php
+    ³       ³   ³   Middleware.php
+    ³       ³   ³   Response.php
+    ³       ³   ³   ResponseFactory.php
+    ³       ³   ³   ServiceProvider.php
+    ³       ³   ³   
+    ³       ³   ÃÄÄÄCommands
+    ³       ³   ³       CreateMiddleware.php
+    ³       ³   ³       StartSsr.php
+    ³       ³   ³       StopSsr.php
+    ³       ³   ³       
+    ³       ³   ÃÄÄÄSsr
+    ³       ³   ³       BundleDetector.php
+    ³       ³   ³       Gateway.php
+    ³       ³   ³       HttpGateway.php
+    ³       ³   ³       Response.php
+    ³       ³   ³       SsrException.php
+    ³       ³   ³       
+    ³       ³   ÃÄÄÄSupport
+    ³       ³   ³       Header.php
+    ³       ³   ³       
+    ³       ³   ÀÄÄÄTesting
+    ³       ³       ³   AssertableInertia.php
+    ³       ³       ³   TestResponseMacros.php
+    ³       ³       ³   
+    ³       ³       ÀÄÄÄConcerns
+    ³       ³               Debugging.php
+    ³       ³               Has.php
+    ³       ³               Interaction.php
+    ³       ³               Matching.php
+    ³       ³               PageObject.php
+    ³       ³               
+    ³       ÀÄÄÄstubs
+    ³               middleware.stub
+    ³               
+    ÃÄÄÄjean85
+    ³   ÀÄÄÄpretty-package-versions
+    ³       ³   composer.json
+    ³       ³   LICENSE
+    ³       ³   
+    ³       ÀÄÄÄsrc
+    ³           ³   PrettyVersions.php
+    ³           ³   Version.php
+    ³           ³   
+    ³           ÀÄÄÄException
+    ³                   ProvidedPackageException.php
+    ³                   ReplacedPackageException.php
+    ³                   VersionMissingExceptionInterface.php
+    ³                   
+    ÃÄÄÄlaravel
+    ³   ÃÄÄÄbreeze
+    ³   ³   ³   composer.json
+    ³   ³   ³   LICENSE.md
+    ³   ³   ³   README.md
+    ³   ³   ³   
+    ³   ³   ÃÄÄÄsrc
+    ³   ³   ³   ³   BreezeServiceProvider.php
+    ³   ³   ³   ³   
+    ³   ³   ³   ÀÄÄÄConsole
+    ³   ³   ³           InstallCommand.php
+    ³   ³   ³           InstallsApiStack.php
+    ³   ³   ³           InstallsBladeStack.php
+    ³   ³   ³           InstallsInertiaStacks.php
+    ³   ³   ³           InstallsLivewireStack.php
+    ³   ³   ³           
+    ³   ³   ÀÄÄÄstubs
+    ³   ³       ÃÄÄÄapi
+    ³   ³       ³   ÃÄÄÄapp
+    ³   ³       ³   ³   ÃÄÄÄHttp
+    ³   ³       ³   ³   ³   ÃÄÄÄControllers
+    ³   ³       ³   ³   ³   ³   ÀÄÄÄAuth
+    ³   ³       ³   ³   ³   ³           AuthenticatedSessionController.php
+    ³   ³       ³   ³   ³   ³           EmailVerificationNotificationController.php
+    ³   ³       ³   ³   ³   ³           NewPasswordController.php
+    ³   ³       ³   ³   ³   ³           PasswordResetLinkController.php
+    ³   ³       ³   ³   ³   ³           RegisteredUserController.php
+    ³   ³       ³   ³   ³   ³           VerifyEmailController.php
+    ³   ³       ³   ³   ³   ³           
+    ³   ³       ³   ³   ³   ÃÄÄÄMiddleware
+    ³   ³       ³   ³   ³   ³       EnsureEmailIsVerified.php
+    ³   ³       ³   ³   ³   ³       
+    ³   ³       ³   ³   ³   ÀÄÄÄRequests
+    ³   ³       ³   ³   ³       ÀÄÄÄAuth
+    ³   ³       ³   ³   ³               LoginRequest.php
+    ³   ³       ³   ³   ³               
+    ³   ³       ³   ³   ÀÄÄÄProviders
+    ³   ³       ³   ³           AppServiceProvider.php
+    ³   ³       ³   ³           
+    ³   ³       ³   ÃÄÄÄconfig
+    ³   ³       ³   ³       cors.php
+    ³   ³       ³   ³       sanctum.php
+    ³   ³       ³   ³       
+    ³   ³       ³   ÃÄÄÄpest-tests
+    ³   ³       ³   ³   ³   Pest.php
+    ³   ³       ³   ³   ³   
+    ³   ³       ³   ³   ÃÄÄÄFeature
+    ³   ³       ³   ³   ³   ³   ExampleTest.php
+    ³   ³       ³   ³   ³   ³   
+    ³   ³       ³   ³   ³   ÀÄÄÄAuth
+    ³   ³       ³   ³   ³           AuthenticationTest.php
+    ³   ³       ³   ³   ³           EmailVerificationTest.php
+    ³   ³       ³   ³   ³           PasswordResetTest.php
+    ³   ³       ³   ³   ³           RegistrationTest.php
+    ³   ³       ³   ³   ³           
+    ³   ³       ³   ³   ÀÄÄÄUnit
+    ³   ³       ³   ³           ExampleTest.php
+    ³   ³       ³   ³           
+    ³   ³       ³   ÃÄÄÄroutes
+    ³   ³       ³   ³       api.php
+    ³   ³       ³   ³       auth.php
+    ³   ³       ³   ³       web.php
+    ³   ³       ³   ³       
+    ³   ³       ³   ÀÄÄÄtests
+    ³   ³       ³       ÀÄÄÄFeature
+    ³   ³       ³           ÀÄÄÄAuth
+    ³   ³       ³                   AuthenticationTest.php
+    ³   ³       ³                   EmailVerificationTest.php
+    ³   ³       ³                   PasswordResetTest.php
+    ³   ³       ³                   RegistrationTest.php
+    ³   ³       ³                   
+    ³   ³       ÃÄÄÄdefault
+    ³   ³       ³   ³   postcss.config.js
+    ³   ³       ³   ³   tailwind.config.js
+    ³   ³       ³   ³   vite.config.js
+    ³   ³       ³   ³   
+    ³   ³       ³   ÃÄÄÄapp
+    ³   ³       ³   ³   ÃÄÄÄHttp
+    ³   ³       ³   ³   ³   ÃÄÄÄControllers
+    ³   ³       ³   ³   ³   ³   ³   ProfileController.php
+    ³   ³       ³   ³   ³   ³   ³   
+    ³   ³       ³   ³   ³   ³   ÀÄÄÄAuth
+    ³   ³       ³   ³   ³   ³           AuthenticatedSessionController.php
+    ³   ³       ³   ³   ³   ³           ConfirmablePasswordController.php
+    ³   ³       ³   ³   ³   ³           EmailVerificationPromptController.php
+    ³   ³       ³   ³   ³   ³           NewPasswordController.php
+    ³   ³       ³   ³   ³   ³           PasswordController.php
+    ³   ³       ³   ³   ³   ³           PasswordResetLinkController.php
+    ³   ³       ³   ³   ³   ³           RegisteredUserController.php
+    ³   ³       ³   ³   ³   ³           VerifyEmailController.php
+    ³   ³       ³   ³   ³   ³           
+    ³   ³       ³   ³   ³   ÀÄÄÄRequests
+    ³   ³       ³   ³   ³       ³   ProfileUpdateRequest.php
+    ³   ³       ³   ³   ³       ³   
+    ³   ³       ³   ³   ³       ÀÄÄÄAuth
+    ³   ³       ³   ³   ³               LoginRequest.php
+    ³   ³       ³   ³   ³               
+    ³   ³       ³   ³   ÀÄÄÄView
+    ³   ³       ³   ³       ÀÄÄÄComponents
+    ³   ³       ³   ³               AppLayout.php
+    ³   ³       ³   ³               GuestLayout.php
+    ³   ³       ³   ³               
+    ³   ³       ³   ÃÄÄÄpest-tests
+    ³   ³       ³   ³   ³   Pest.php
+    ³   ³       ³   ³   ³   
+    ³   ³       ³   ³   ÃÄÄÄFeature
+    ³   ³       ³   ³   ³   ³   ExampleTest.php
+    ³   ³       ³   ³   ³   ³   ProfileTest.php
+    ³   ³       ³   ³   ³   ³   
+    ³   ³       ³   ³   ³   ÀÄÄÄAuth
+    ³   ³       ³   ³   ³           AuthenticationTest.php
+    ³   ³       ³   ³   ³           EmailVerificationTest.php
+    ³   ³       ³   ³   ³           PasswordConfirmationTest.php
+    ³   ³       ³   ³   ³           PasswordResetTest.php
+    ³   ³       ³   ³   ³           PasswordUpdateTest.php
+    ³   ³       ³   ³   ³           RegistrationTest.php
+    ³   ³       ³   ³   ³           
+    ³   ³       ³   ³   ÀÄÄÄUnit
+    ³   ³       ³   ³           ExampleTest.php
+    ³   ³       ³   ³           
+    ³   ³       ³   ÃÄÄÄresources
+    ³   ³       ³   ³   ÃÄÄÄcss
+    ³   ³       ³   ³   ³       app.css
+    ³   ³       ³   ³   ³       
+    ³   ³       ³   ³   ÃÄÄÄjs
+    ³   ³       ³   ³   ³       app.js
+    ³   ³       ³   ³   ³       
+    ³   ³       ³   ³   ÀÄÄÄviews
+    ³   ³       ³   ³       ³   dashboard.blade.php
+    ³   ³       ³   ³       ³   
+    ³   ³       ³   ³       ÃÄÄÄauth
+    ³   ³       ³   ³       ³       confirm-password.blade.php
+    ³   ³       ³   ³       ³       forgot-password.blade.php
+    ³   ³       ³   ³       ³       login.blade.php
+    ³   ³       ³   ³       ³       register.blade.php
+    ³   ³       ³   ³       ³       reset-password.blade.php
+    ³   ³       ³   ³       ³       verify-email.blade.php
+    ³   ³       ³   ³       ³       
+    ³   ³       ³   ³       ÃÄÄÄcomponents
+    ³   ³       ³   ³       ³       application-logo.blade.php
+    ³   ³       ³   ³       ³       auth-session-status.blade.php
+    ³   ³       ³   ³       ³       danger-button.blade.php
+    ³   ³       ³   ³       ³       dropdown-link.blade.php
+    ³   ³       ³   ³       ³       dropdown.blade.php
+    ³   ³       ³   ³       ³       input-error.blade.php
+    ³   ³       ³   ³       ³       input-label.blade.php
+    ³   ³       ³   ³       ³       modal.blade.php
+    ³   ³       ³   ³       ³       nav-link.blade.php
+    ³   ³       ³   ³       ³       primary-button.blade.php
+    ³   ³       ³   ³       ³       responsive-nav-link.blade.php
+    ³   ³       ³   ³       ³       secondary-button.blade.php
+    ³   ³       ³   ³       ³       text-input.blade.php
+    ³   ³       ³   ³       ³       
+    ³   ³       ³   ³       ÃÄÄÄlayouts
+    ³   ³       ³   ³       ³       app.blade.php
+    ³   ³       ³   ³       ³       guest.blade.php
+    ³   ³       ³   ³       ³       navigation.blade.php
+    ³   ³       ³   ³       ³       
+    ³   ³       ³   ³       ÀÄÄÄprofile
+    ³   ³       ³   ³           ³   edit.blade.php
+    ³   ³       ³   ³           ³   
+    ³   ³       ³   ³           ÀÄÄÄpartials
+    ³   ³       ³   ³                   delete-user-form.blade.php
+    ³   ³       ³   ³                   update-password-form.blade.php
+    ³   ³       ³   ³                   
+    ³   ³       ³   ÃÄÄÄroutes
+    ³   ³       ³   ³       auth.php
+    ³   ³       ³   ³       web.php
+    ³   ³       ³   ³       
+    ³   ³       ³   ÀÄÄÄtests
+    ³   ³       ³       ÀÄÄÄFeature
+    ³   ³       ³           ³   ProfileTest.php
+    ³   ³       ³           ³   
+    ³   ³       ³           ÀÄÄÄAuth
+    ³   ³       ³                   AuthenticationTest.php
+    ³   ³       ³                   EmailVerificationTest.php
+    ³   ³       ³                   PasswordConfirmationTest.php
+    ³   ³       ³                   PasswordResetTest.php
+    ³   ³       ³                   PasswordUpdateTest.php
+    ³   ³       ³                   RegistrationTest.php
+    ³   ³       ³                   
+    ³   ³       ÃÄÄÄinertia-common
+    ³   ³       ³   ³   .prettierrc
+    ³   ³       ³   ³   jsconfig.json
+    ³   ³       ³   ³   tailwind.config.js
+    ³   ³       ³   ³   
+    ³   ³       ³   ÃÄÄÄapp
+    ³   ³       ³   ³   ÃÄÄÄHttp
+    ³   ³       ³   ³   ³   ÃÄÄÄControllers
+    ³   ³       ³   ³   ³   ³   ³   ProfileController.php
+    ³   ³       ³   ³   ³   ³   ³   
+    ³   ³       ³   ³   ³   ³   ÀÄÄÄAuth
+    ³   ³       ³   ³   ³   ³           AuthenticatedSessionController.php
+    ³   ³       ³   ³   ³   ³           ConfirmablePasswordController.php
+    ³   ³       ³   ³   ³   ³           NewPasswordController.php
+    ³   ³       ³   ³   ³   ³           PasswordController.php
+    ³   ³       ³   ³   ³   ³           PasswordResetLinkController.php
+    ³   ³       ³   ³   ³   ³           RegisteredUserController.php
+    ³   ³       ³   ³   ³   ³           VerifyEmailController.php
+    ³   ³       ³   ³   ³   ³           
+    ³   ³       ³   ³   ³   ÀÄÄÄMiddleware
+    ³   ³       ³   ³   ³           HandleInertiaRequests.php
+    ³   ³       ³   ³   ³           
+    ³   ³       ³   ³   ÀÄÄÄProviders
+    ³   ³       ³   ³           AppServiceProvider.php
+    ³   ³       ³   ³           
+    ³   ³       ³   ÃÄÄÄpest-tests
+    ³   ³       ³   ³   ÀÄÄÄFeature
+    ³   ³       ³   ³       ³   ProfileTest.php
+    ³   ³       ³   ³       ³   
+    ³   ³       ³   ³       ÀÄÄÄAuth
+    ³   ³       ³   ³               PasswordUpdateTest.php
+    ³   ³       ³   ³               
+    ³   ³       ³   ÃÄÄÄroutes
+    ³   ³       ³   ³       auth.php
+    ³   ³       ³   ³       web.php
+    ³   ³       ³   ³       
+    ³   ³       ³   ÀÄÄÄtests
+    ³   ³       ³       ÀÄÄÄFeature
+    ³   ³       ³           ³   ProfileTest.php
+    ³   ³       ³           ³   
+    ³   ³       ³           ÀÄÄÄAuth
+    ³   ³       ³                   PasswordUpdateTest.php
+    ³   ³       ³                   
+    ³   ³       ÃÄÄÄinertia-react
+    ³   ³       ³   ³   .eslintrc.json
+    ³   ³       ³   ³   vite.config.js
+    ³   ³       ³   ³   
+    ³   ³       ³   ÀÄÄÄresources
+    ³   ³       ³       ÃÄÄÄjs
+    ³   ³       ³       ³   ³   app.jsx
+    ³   ³       ³       ³   ³   ssr.jsx
+    ³   ³       ³       ³   ³   
+    ³   ³       ³       ³   ÃÄÄÄComponents
+    ³   ³       ³       ³   ³       ApplicationLogo.jsx
+    ³   ³       ³       ³   ³       Checkbox.jsx
+    ³   ³       ³       ³   ³       DangerButton.jsx
+    ³   ³       ³       ³   ³       Dropdown.jsx
+    ³   ³       ³       ³   ³       InputError.jsx
+    ³   ³       ³       ³   ³       InputLabel.jsx
+    ³   ³       ³       ³   ³       Modal.jsx
+    ³   ³       ³       ³   ³       NavLink.jsx
+    ³   ³       ³       ³   ³       PrimaryButton.jsx
+    ³   ³       ³       ³   ³       ResponsiveNavLink.jsx
+    ³   ³       ³       ³   ³       SecondaryButton.jsx
+    ³   ³       ³       ³   ³       TextInput.jsx
+    ³   ³       ³       ³   ³       
+    ³   ³       ³       ³   ÃÄÄÄLayouts
+    ³   ³       ³       ³   ³       AuthenticatedLayout.jsx
+    ³   ³       ³       ³   ³       GuestLayout.jsx
+    ³   ³       ³       ³   ³       
+    ³   ³       ³       ³   ÀÄÄÄPages
+    ³   ³       ³       ³       ³   Dashboard.jsx
+    ³   ³       ³       ³       ³   Welcome.jsx
+    ³   ³       ³       ³       ³   
+    ³   ³       ³       ³       ÃÄÄÄAuth
+    ³   ³       ³       ³       ³       ConfirmPassword.jsx
+    ³   ³       ³       ³       ³       ForgotPassword.jsx
+    ³   ³       ³       ³       ³       Login.jsx
+    ³   ³       ³       ³       ³       Register.jsx
+    ³   ³       ³       ³       ³       ResetPassword.jsx
+    ³   ³       ³       ³       ³       VerifyEmail.jsx
+    ³   ³       ³       ³       ³       
+    ³   ³       ³       ³       ÀÄÄÄProfile
+    ³   ³       ³       ³           ³   Edit.jsx
+    ³   ³       ³       ³           ³   
+    ³   ³       ³       ³           ÀÄÄÄPartials
+    ³   ³       ³       ³                   DeleteUserForm.jsx
+    ³   ³       ³       ³                   UpdatePasswordForm.jsx
+    ³   ³       ³       ³                   
+    ³   ³       ³       ÀÄÄÄviews
+    ³   ³       ³               app.blade.php
+    ³   ³       ³               
+    ³   ³       ÃÄÄÄinertia-react-ts
+    ³   ³       ³   ³   .eslintrc.json
+    ³   ³       ³   ³   tsconfig.json
+    ³   ³       ³   ³   
+    ³   ³       ³   ÀÄÄÄresources
+    ³   ³       ³       ÀÄÄÄjs
+    ³   ³       ³           ³   app.tsx
+    ³   ³       ³           ³   ssr.tsx
+    ³   ³       ³           ³   
+    ³   ³       ³           ÃÄÄÄComponents
+    ³   ³       ³           ³       ApplicationLogo.tsx
+    ³   ³       ³           ³       Checkbox.tsx
+    ³   ³       ³           ³       DangerButton.tsx
+    ³   ³       ³           ³       Dropdown.tsx
+    ³   ³       ³           ³       InputError.tsx
+    ³   ³       ³           ³       InputLabel.tsx
+    ³   ³       ³           ³       Modal.tsx
+    ³   ³       ³           ³       NavLink.tsx
+    ³   ³       ³           ³       PrimaryButton.tsx
+    ³   ³       ³           ³       ResponsiveNavLink.tsx
+    ³   ³       ³           ³       SecondaryButton.tsx
+    ³   ³       ³           ³       TextInput.tsx
+    ³   ³       ³           ³       
+    ³   ³       ³           ÃÄÄÄLayouts
+    ³   ³       ³           ³       AuthenticatedLayout.tsx
+    ³   ³       ³           ³       GuestLayout.tsx
+    ³   ³       ³           ³       
+    ³   ³       ³           ÃÄÄÄPages
+    ³   ³       ³           ³   ³   Dashboard.tsx
+    ³   ³       ³           ³   ³   Welcome.tsx
+    ³   ³       ³           ³   ³   
+    ³   ³       ³           ³   ÃÄÄÄAuth
+    ³   ³       ³           ³   ³       ConfirmPassword.tsx
+    ³   ³       ³           ³   ³       ForgotPassword.tsx
+    ³   ³       ³           ³   ³       Login.tsx
+    ³   ³       ³           ³   ³       Register.tsx
+    ³   ³       ³           ³   ³       ResetPassword.tsx
+    ³   ³       ³           ³   ³       VerifyEmail.tsx
+    ³   ³       ³           ³   ³       
+    ³   ³       ³           ³   ÀÄÄÄProfile
+    ³   ³       ³           ³       ³   Edit.tsx
+    ³   ³       ³           ³       ³   
+    ³   ³       ³           ³       ÀÄÄÄPartials
+    ³   ³       ³           ³               DeleteUserForm.tsx
+    ³   ³       ³           ³               UpdatePasswordForm.tsx
+    ³   ³       ³           ³               
+    ³   ³       ³           ÀÄÄÄtypes
+    ³   ³       ³                   global.d.ts
+    ³   ³       ³                   index.d.ts
+    ³   ³       ³                   vite-env.d.ts
+    ³   ³       ³                   
+    ³   ³       ÃÄÄÄinertia-vue
+    ³   ³       ³   ³   .eslintrc.cjs
+    ³   ³       ³   ³   vite.config.js
+    ³   ³       ³   ³   
+    ³   ³       ³   ÀÄÄÄresources
+    ³   ³       ³       ÃÄÄÄjs
+    ³   ³       ³       ³   ³   app.js
+    ³   ³       ³       ³   ³   ssr.js
+    ³   ³       ³       ³   ³   
+    ³   ³       ³       ³   ÃÄÄÄComponents
+    ³   ³       ³       ³   ³       ApplicationLogo.vue
+    ³   ³       ³       ³   ³       Checkbox.vue
+    ³   ³       ³       ³   ³       DangerButton.vue
+    ³   ³       ³       ³   ³       Dropdown.vue
+    ³   ³       ³       ³   ³       DropdownLink.vue
+    ³   ³       ³       ³   ³       InputError.vue
+    ³   ³       ³       ³   ³       InputLabel.vue
+    ³   ³       ³       ³   ³       Modal.vue
+    ³   ³       ³       ³   ³       NavLink.vue
+    ³   ³       ³       ³   ³       PrimaryButton.vue
+    ³   ³       ³       ³   ³       ResponsiveNavLink.vue
+    ³   ³       ³       ³   ³       SecondaryButton.vue
+    ³   ³       ³       ³   ³       TextInput.vue
+    ³   ³       ³       ³   ³       
+    ³   ³       ³       ³   ÃÄÄÄLayouts
+    ³   ³       ³       ³   ³       AuthenticatedLayout.vue
+    ³   ³       ³       ³   ³       GuestLayout.vue
+    ³   ³       ³       ³   ³       
+    ³   ³       ³       ³   ÀÄÄÄPages
+    ³   ³       ³       ³       ³   Dashboard.vue
+    ³   ³       ³       ³       ³   Welcome.vue
+    ³   ³       ³       ³       ³   
+    ³   ³       ³       ³       ÃÄÄÄAuth
+    ³   ³       ³       ³       ³       ConfirmPassword.vue
+    ³   ³       ³       ³       ³       ForgotPassword.vue
+    ³   ³       ³       ³       ³       Login.vue
+    ³   ³       ³       ³       ³       Register.vue
+    ³   ³       ³       ³       ³       ResetPassword.vue
+    ³   ³       ³       ³       ³       VerifyEmail.vue
+    ³   ³       ³       ³       ³       
+    ³   ³       ³       ³       ÀÄÄÄProfile
+    ³   ³       ³       ³           ³   Edit.vue
+    ³   ³       ³       ³           ³   
+    ³   ³       ³       ³           ÀÄÄÄPartials
+    ³   ³       ³       ³                   DeleteUserForm.vue
+    ³   ³       ³       ³                   UpdatePasswordForm.vue
+    ³   ³       ³       ³                   
+    ³   ³       ³       ÀÄÄÄviews
+    ³   ³       ³               app.blade.php
+ 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\CompanyProfile;
+use App\Models\JobSeekerProfile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,26 +20,115 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
+        $user = $request->user();
+        
+        // Get or create the appropriate profile based on user type
+        if ($user->user_type === 'company') {
+            $profile = $user->companyProfile ?? CompanyProfile::create([
+                'user_id' => $user->id,
+                'company_name' => '',
+                'industry' => '',
+                'location' => ''
+            ]);
+        } else {
+            $profile = $user->jobSeekerProfile ?? JobSeekerProfile::create([
+                'user_id' => $user->id,
+                'title' => '',
+                'experience_years' => 0,
+                'education_level' => '',
+                'skills' => []
+            ]);
+        }
+
+        // Load the relationship to ensure it's available
+        $user->load($user->user_type === 'company' ? 'companyProfile' : 'jobSeekerProfile');
+
+        return Inertia::render(
+            $user->user_type === 'company' ? 'Profile/CompanyProfile' : 'Profile/JobSeekerProfile',
+            [
+                'mustVerifyEmail' => $user instanceof MustVerifyEmail,
+                'status' => session('status'),
+                'profile' => $profile
+            ]
+        );
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        try {
+            if ($user->user_type === 'company') {
+                $this->updateCompanyProfile($request, $user);
+            } else {
+                $this->updateJobSeekerProfile($request, $user);
+            }
+
+            return Redirect::route('profile.edit')->with('success', 'Profile updated successfully');
+        } catch (\Exception $e) {
+            return Redirect::route('profile.edit')->with('error', 'Failed to update profile: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Update company profile information.
+     */
+    private function updateCompanyProfile(Request $request, $user): void
+    {
+        $validated = $request->validate([
+            'company_name' => ['required', 'string', 'max:255'],
+            'industry' => ['required', 'string', 'max:255'],
+            'company_size' => ['nullable', 'string'],
+            'founded_year' => ['nullable', 'integer', 'min:1800', 'max:' . date('Y')],
+            'website' => ['nullable', 'url'],
+            'location' => ['required', 'string', 'max:255'],
+            'about' => ['nullable', 'string'],
+        ]);
+
+        $profile = $user->companyProfile;
+        if (!$profile) {
+            $profile = new CompanyProfile();
+            $profile->user_id = $user->id;
         }
 
-        $request->user()->save();
+        $profile->fill($validated);
+        $profile->save();
 
-        return Redirect::route('profile.edit');
+        // Refresh the relationship
+        $user->load('companyProfile');
+    }
+
+    /**
+     * Update job seeker profile information.
+     */
+    private function updateJobSeekerProfile(Request $request, $user): void
+    {
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'experience_years' => ['required', 'integer', 'min:0'],
+            'education_level' => ['required', 'string'],
+            'skills' => ['required', 'string'],
+            'bio' => ['nullable', 'string'],
+            'linkedin_url' => ['nullable', 'url'],
+        ]);
+
+        // Convert comma-separated skills to array
+        $validated['skills'] = array_map('trim', explode(',', $validated['skills']));
+
+        $profile = $user->jobSeekerProfile;
+        if (!$profile) {
+            $profile = new JobSeekerProfile();
+            $profile->user_id = $user->id;
+        }
+
+        $profile->fill($validated);
+        $profile->save();
+
+        // Refresh the relationship
+        $user->load('jobSeekerProfile');
     }
 
     /**

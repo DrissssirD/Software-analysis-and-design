@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from '@inertiajs/react';
 import logo from "@/Assets/Ellipse 2.jpg";
 
+
 const footerLinks = [
   { name: "Company", route: 'company' },
   { name: "Pricing", route: 'pricing' },
