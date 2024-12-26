@@ -3,55 +3,45 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\JobPostController;
 use Inertia\Inertia;
 
-
-// Landing Page
+// Public routes
 Route::get('/', function () {
-    return Inertia::render('LandingPage');
+   return Inertia::render('LandingPage');
 })->name('home');
 
-// Jobs Listing
-Route::get('/jobs', function () {
-    return Inertia::render('Jobs/Index');
-})->name('jobs.index');
-
-// Auth & Protected Routes
+// Auth routes
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Dashboards
-    Route::get('/company/dashboard', function () {
-        return Inertia::render('Dashboard/Company/Dashboard');
-    })->name('company.dashboard');
+   // Jobs routes
+   Route::controller(JobPostController::class)->group(function() {
+       Route::get('/jobs', 'index')->name('jobs.index');
+       Route::post('/jobs', 'store')->name('jobs.store');
+       Route::get('/jobs/create', 'create')->name('jobs.create');
+       Route::get('/jobs/{jobPost}', 'show')->name('jobs.show');
+   });
 
-    Route::get('/jobseeker/dashboard', function () {
-        return Inertia::render('Dashboard/JobSeeker/Dashboard');
-    })->name('jobseeker.dashboard');
+   // Dashboard routes
+   Route::get('/dashboard', function () {
+       return Auth::user()->user_type === 'company' 
+           ? redirect()->route('company.dashboard')
+           : redirect()->route('jobseeker.dashboard');
+   })->name('dashboard');
 
-    // Main dashboard router
-    Route::get('/dashboard', function () {
-        if (Auth::user()->user_type === 'company') {
-            return redirect()->route('company.dashboard');
-        }
-        return redirect()->route('jobseeker.dashboard');
-    })->name('dashboard');
+   Route::get('/company/dashboard', function () {
+       return Inertia::render('Dashboard/Company/Dashboard');
+   })->name('company.dashboard');
 
-    // Other routes
-    Route::get('/jobs/create', function () {
-        return Inertia::render('Jobs/Create');
-    })->name('jobs.create');
+   Route::get('/jobseeker/dashboard', function () {
+       return Inertia::render('Dashboard/JobSeeker/Dashboard');
+   })->name('jobseeker.dashboard');
 
-    Route::get('/applications', function () {
-        return Inertia::render('Applications/Index');
-    })->name('applications.index');
-
-    Route::get('/messages', function () {
-        return Inertia::render('Messages/Index');
-    })->name('messages.index');
-
-    // Profile routes
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+   // Profile routes
+   Route::controller(ProfileController::class)->group(function() {
+       Route::get('/profile', 'edit')->name('profile.edit');
+       Route::patch('/profile', 'update')->name('profile.update');
+       Route::delete('/profile', 'destroy')->name('profile.destroy');
+   });
 });
 
 require __DIR__.'/auth.php';
