@@ -13,11 +13,15 @@ class JobApplication extends Model
         'cover_letter',
         'resume_path',
         'status',
+        'feedback',
+        'reviewed_at',
+        'reviewed_by',
         'applied_at'
     ];
 
     protected $casts = [
-        'applied_at' => 'datetime'
+        'applied_at' => 'datetime',
+        'reviewed_at' => 'datetime'
     ];
 
     public function jobPost(): BelongsTo

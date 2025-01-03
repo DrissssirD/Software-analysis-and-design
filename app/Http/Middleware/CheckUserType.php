@@ -5,23 +5,31 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
 class CheckUserType
 {
-    public function handle(Request $request, Closure $next, string $userType): Response
-    {
-        $currentUserType = strtolower(Auth::user()?->user_type);
-        $requestedType = strtolower($userType);
-
-        if ($currentUserType !== $requestedType) {
-            $redirectRoute = $currentUserType === 'company' 
-                ? 'company.dashboard' 
-                : 'jobseeker.dashboard';
-                
-            return redirect()->route($redirectRoute);
-        }
-
-        return $next($request);
+    public function handle(Request $request, Closure $next, string $userType)
+{
+    if (!Auth::check()) {
+        Log::warning('Unauthenticated access attempt', [
+            'path' => $request->path(),
+            'ip' => $request->ip()
+        ]);
+        return redirect()->route('login');
     }
+
+    // Remove strtolower() calls
+    $currentUserType = Auth::user()->user_type;
+    if ($currentUserType !== $userType) {
+        $redirectRoute = $currentUserType === 'company' 
+            ? 'company.dashboard' 
+            : 'jobseeker.dashboard';
+            
+        return redirect()->route($redirectRoute)
+            ->with('error', 'Unauthorized access.');
+    }
+
+    return $next($request);
+}
 }

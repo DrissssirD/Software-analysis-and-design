@@ -11,12 +11,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
 
-
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
     public function create(): Response
     {
         return Inertia::render('Auth/Login', [
@@ -24,40 +20,38 @@ class AuthenticatedSessionController extends Controller
             'status' => session('status'),
         ]);
     }
-
-    /**
-     * Handle an incoming authentication request.
-     */
-    
-public function store(LoginRequest $request): RedirectResponse
+    public function destroy(Request $request): RedirectResponse
 {
-    $request->authenticate();
+    Auth::guard('web')->logout();
 
-        // Check if the user's type matches the attempted login type
-        $user = Auth::user();
-        if ($user->user_type !== $request->user_type) {
-            Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}
+
+    public function store(LoginRequest $request): RedirectResponse
+    {
+        try {
+            $request->authenticate();
+            
+            $user = Auth::user();
+            if ($user->user_type !== $request->user_type) {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'These credentials do not match our records for the selected user type.'
+                ]);
+            }
+            
+            $request->session()->regenerate();
+            
+            $route = $user->user_type === 'company' ? 'company.dashboard' : 'jobseeker.dashboard';
+            return redirect()->intended(route($route));
+            
+        } catch (\Exception $e) {
             return back()->withErrors([
-                'email' => 'These credentials do not match our records for the selected user type.'
+                'email' => 'The provided credentials are incorrect.'
             ]);
         }
-
-        $request->session()->regenerate();
-
-        // Redirect based on user type
-        $route = $user->user_type === 'company' ? 'company.dashboard' : 'jobseeker.dashboard';
-        return redirect()->intended(route($route));}
-    /**
-     * Destroy an authenticated session.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
     }
 }

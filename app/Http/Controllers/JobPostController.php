@@ -10,67 +10,53 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use App\Http\Middleware\CheckUserType;
 
 class JobPostController extends Controller
 {
     public function __construct()
     {
-        // Ensure user is a company for all methods except index
         $this->middleware(function ($request, $next) {
             if (Auth::user()->user_type !== 'company') {
                 abort(403, 'Only companies can manage job posts.');
             }
             return $next($request);
-        })->except(['index', 'show']);
+        })->except(['index', 'show']);}
+
+    public function index(): Response
+    {
+        try {
+            $user = Auth::user();
+            Log::info('User accessing jobs index:', ['user_type' => $user->user_type]);
+            
+            $query = JobPost::with(['companyProfile' => function($query) {
+                $query->select('id', 'company_name', 'industry', 'location');
+            }]);
+
+            // If company user, only show their posts
+            if ($user->user_type === 'company') {
+                $query->where('company_profile_id', $user->companyProfile->id);
+                Log::info('Filtering for company:', ['company_id' => $user->companyProfile->id]);
+            }
+
+            $posts = $query->latest()->paginate(10);
+
+            return Inertia::render('Jobs/Index', [
+                'posts' => $posts,
+                'auth' => [
+                    'user' => $user
+                ],
+                'isCompany' => $user->user_type === 'company'
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error in jobs index:', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        }
     }
-
-    /**
-     * Display a listing of job posts.
-     */
-    
-    /*
-     public function index(): Response
-     {
-         $user = Auth::user();
-         Log::info('Index accessed by:', ['user_id' => $user->id, 'type' => $user->user_type]);
-     
-         $query = JobPost::with('companyProfile');
-         $posts = $query->latest()->get();
-         Log::info('Posts retrieved:', ['count' => $posts->count()]);
-     
-         return Inertia::render('Jobs/Index', [
-             'posts' => [
-                 'data' => $posts
-             ],
-             'auth' => [
-                 'user' => $user
-             ]
-         ]);
-     }*/
-
-
-     public function index(): Response
-{
-    $user = Auth::user();
-    
-    $query = JobPost::with(['companyProfile' => function($query) {
-        $query->select('id', 'company_name', 'industry', 'location');
-    }]);
-
-    if ($user->user_type === 'company') {
-        $query->where('company_profile_id', $user->companyProfile->id);
-    }
-
-    $posts = $query->latest()->paginate(10);
-
-    return Inertia::render('Jobs/Index', [
-        'posts' => $posts,
-        'auth' => [
-            'user' => $user
-        ]
-    ]);
-}
-    /**
+  /**
      * Show the form for creating a new job post.
      */
     public function create(): Response
@@ -123,27 +109,51 @@ class JobPostController extends Controller
     /**
      * Display the specified job post.
      */
+    // In JobPostController.php, update the show method:
     public function show(JobPost $jobPost): Response
 {
-    // Eager load relationships
-    $jobPost->load(['companyProfile' => function($query) {
-        $query->select('id', 'company_name', 'industry', 'location', 'website', 'company_size');
-    }]);
-
-    // For companies, also load application count
-    if (Auth::check() && Auth::user()->user_type === 'company') {
+    try {
+        $user = Auth::user();
+        
+        // Eager load relationships
+        $jobPost->load(['companyProfile' => function($query) {
+            $query->select('id', 'company_name', 'industry', 'location', 'website', 'company_size');
+        }]);
+        
         $jobPost->loadCount('applications');
-    }
 
-    return Inertia::render('Jobs/Show', [
-        'job' => $jobPost,
-        'canApply' => Auth::check() && Auth::user()->user_type === 'jobSeeker',
-        'hasApplied' => Auth::check() && Auth::user()->user_type === 'jobSeeker' ? 
-            $jobPost->applications()
-                ->where('job_seeker_profile_id', Auth::user()->jobSeekerProfile->id)
-                ->exists() : false
-    ]);
+        // Get the company profile directly
+        $companyProfile = $user->companyProfile;
+
+        Log::info('Job post show debug:', [
+            'user_type' => $user->user_type,
+            'user_company_id' => $companyProfile ? $companyProfile->id : null,
+            'job_company_id' => $jobPost->company_profile_id,
+            'matches' => $companyProfile && $companyProfile->id === $jobPost->company_profile_id
+        ]);
+
+        return Inertia::render('Jobs/Show', [
+            'auth' => [
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'user_type' => $user->user_type,
+                    'companyProfile' => $companyProfile
+                ]
+            ],
+            'job' => $jobPost
+        ]);
+    } catch (\Exception $e) {
+        Log::error('Error in show method:', [
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+        throw $e;
+    }
 }
+
+
 
     /**
      * Show the form for editing the job post.
@@ -185,7 +195,7 @@ class JobPostController extends Controller
 
         $jobPost->update($validated);
 
-        return redirect()->route('company.jobs')
+        return redirect()->route('jobs.index')
             ->with('success', 'Job updated successfully!');
     }
 
@@ -201,7 +211,7 @@ class JobPostController extends Controller
         
         $jobPost->delete();
 
-        return redirect()->route('company.jobs')
+        return redirect()->route('jobs.index')
             ->with('success', 'Job deleted successfully!');
     }
 }

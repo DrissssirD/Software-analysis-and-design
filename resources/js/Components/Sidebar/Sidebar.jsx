@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from '@inertiajs/react';
 
-// Define symbols using Unicode characters
 const ICONS = {
     DASHBOARD: '⌂',    // House symbol
     MESSAGES: '✉',     // Envelope
@@ -12,14 +11,15 @@ const ICONS = {
     APPLICATIONS: '📄', // Document
     SETTINGS: '⚙️',    // Gear
     HELP: '❓',        // Question mark
-    COMPANY: '🏢'      // Building
+    COMPANY: '🏢',     // Building
+    LOGOUT: '🚪'       // Door/Exit symbol
 };
 
 export default function Sidebar({ userType }) {
     const mainMenuItems = userType === 'company' 
         ? [
             { label: 'Dashboard', route: 'company.dashboard', icon: ICONS.DASHBOARD },
-            { label: 'Post Jobs', route: 'jobs.create', icon: ICONS.POST },
+            { label: 'Post Jobs', route: 'jobs.index', icon: ICONS.POST },
             { label: 'Applications', route: 'applications.index', icon: ICONS.APPLICATIONS },
             { label: 'Messages', route: 'messages.index', icon: ICONS.MESSAGES },
             { label: 'Company Profile', route: 'profile.edit', icon: ICONS.COMPANY }
@@ -33,8 +33,9 @@ export default function Sidebar({ userType }) {
         ];
 
     const bottomMenuItems = [
-        { label: 'Settings', route: 'profile.edit', icon: ICONS.SETTINGS },
-        { label: 'Help Center', route: 'help.center', icon: ICONS.HELP }
+        { label: 'Settings', route: 'profile.edit', icon: ICONS.SETTINGS, comingSoon: true },
+        { label: 'Help Center', route: 'help.center', icon: ICONS.HELP, comingSoon: true },
+        { label: 'Logout', route: 'logout', icon: ICONS.LOGOUT, method: 'post', isLogout: true }
     ];
 
     return (
@@ -100,10 +101,22 @@ export default function Sidebar({ userType }) {
                         {bottomMenuItems.map((item) => (
                             <li key={item.label} className="flex flex-row h-[48px] gap-3">
                                 <div className="bg-transparent w-1 h-full mr-2"></div>
-                                <span className="p-2 rounded-lg flex items-center gap-3 w-[240px] text-gray-400 cursor-not-allowed">
-                                    <span className="text-xl">{item.icon}</span>
-                                    <span className="text-base font-medium">{item.label} (Coming Soon)</span>
-                                </span>
+                                {item.isLogout ? (
+                                    <Link
+                                        href={route(item.route)}
+                                        method={item.method}
+                                        as="button"
+                                        className="p-2 rounded-lg flex items-center gap-3 w-[240px] text-red-600 hover:bg-red-50 transition-colors duration-200"
+                                    >
+                                        <span className="text-xl">{item.icon}</span>
+                                        <span className="text-base font-medium">{item.label}</span>
+                                    </Link>
+                                ) : (
+                                    <span className="p-2 rounded-lg flex items-center gap-3 w-[240px] text-gray-400 cursor-not-allowed">
+                                        <span className="text-xl">{item.icon}</span>
+                                        <span className="text-base font-medium">{item.label} (Coming Soon)</span>
+                                    </span>
+                                )}
                             </li>
                         ))}
                     </ul>

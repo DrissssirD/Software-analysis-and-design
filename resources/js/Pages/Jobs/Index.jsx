@@ -42,6 +42,7 @@ export default function JobIndex({ auth, posts }) {
                                                     <Link 
                                                         href={route('jobs.show', job.id)}
                                                         className="hover:text-[#4640DE]"
+                                                        preserveScroll={true} 
                                                     >
                                                         {job.title}
                                                     </Link>
