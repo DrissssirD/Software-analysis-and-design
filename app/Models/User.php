@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Conversation;
+use App\Models\Message;
+use App\Models\MessageReaction;
 
 class User extends Authenticatable
 {
@@ -73,4 +77,31 @@ class User extends Authenticatable
             ? $this->companyProfile
             : $this->jobSeekerProfile;
     }
+    // In App\Models\User.php
+
+public function conversations()
+{
+    return $this->hasMany(Conversation::class, 'sender_id')
+        ->orWhere('receiver_id', $this->id);
+}
+
+public function messages()
+{
+    return $this->hasMany(Message::class, 'sender_id');
+}
+
+public function messageReactions()
+{
+    return $this->hasMany(MessageReaction::class);
+}
+
+// Helper method to get all conversations for the user
+public function getAllConversations()
+{
+    return Conversation::where('sender_id', $this->id)
+        ->orWhere('receiver_id', $this->id)
+        ->with(['sender', 'receiver', 'lastMessage'])
+        ->latest('last_message_at')
+        ->get();
+}
 }

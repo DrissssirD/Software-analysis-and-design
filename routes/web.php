@@ -12,6 +12,11 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Middleware\CheckUserType;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MessageReactionController;
+use App\Http\Controllers\UserController;
+
 use Inertia\Inertia;
 
 // Public routes and assets
@@ -99,6 +104,29 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::patch('/profile', 'update')->name('profile.update');
         Route::delete('/profile', 'destroy')->name('profile.destroy');
     });
+
+     // Messages and conversation routes
+     Route::middleware(['auth'])->prefix('messages')->name('messages.')->group(function () {
+        // Conversation routes
+        Route::get('/', [ConversationController::class, 'index'])->name('index');
+        Route::get('/new', function () {
+            return Inertia::render('Messages/NewConversation');
+        })->name('new');
+        Route::get('/{conversation}', [ConversationController::class, 'show'])->name('show');
+        Route::post('/', [ConversationController::class, 'store'])->name('store');
+
+        // Messages
+        Route::post('/{conversation}/messages', [MessageController::class, 'store'])->name('message.store');
+        Route::post('/messages/{message}/read', [MessageController::class, 'markAsRead'])->name('message.read');
+
+        // Message reactions
+        Route::post('/messages/{message}/reactions', [MessageReactionController::class, 'store'])->name('reaction.store');
+        Route::delete('/messages/{message}/reactions', [MessageReactionController::class, 'destroy'])->name('reaction.destroy');
+
+        // Available users for messaging
+        Route::get('/users/available', [UserController::class, 'getAvailableUsers'])->name('users.available');
+    });
+
 });
 
 require __DIR__.'/auth.php';
