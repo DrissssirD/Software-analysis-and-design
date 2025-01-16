@@ -108,12 +108,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
      // Messages and conversation routes
      Route::middleware(['auth'])->prefix('messages')->name('messages.')->group(function () {
         // Conversation routes
+        Route::post('/store', [ConversationController::class, 'store'])->name('store'); 
         Route::get('/', [ConversationController::class, 'index'])->name('index');
         Route::get('/new', function () {
             return Inertia::render('Messages/NewConversation');
         })->name('new');
         Route::get('/{conversation}', [ConversationController::class, 'show'])->name('show');
-        Route::post('/', [ConversationController::class, 'store'])->name('store');
+        
 
         // Messages
         Route::post('/{conversation}/messages', [MessageController::class, 'store'])->name('message.store');
@@ -127,6 +128,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/users/available', [UserController::class, 'getAvailableUsers'])->name('users.available');
     });
 
+    Route::get('/presentation', function () {
+        return Inertia::render('Presentation/index');
+    })->name('presentation');
 });
 
 require __DIR__.'/auth.php';

@@ -30,24 +30,20 @@ export default function NewConversation({ auth }) {
     const filteredUsers = users.filter(user => 
         user.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+    
 
-    const startConversation = (userId) => {
-        console.log('Starting conversation with user:', userId);
-        
-        post(route('messages.store'), {
-            receiver_id: userId
-        }, {
-            preserveScroll: true,
-            onSuccess: (page) => {
-                console.log('Conversation created successfully:', page);
-            },
-            onError: (errors) => {
-                console.error('Error creating conversation:', errors);
-            },
-            onFinish: () => {
-                console.log('Request finished');
-            }
-        });
+    const startConversation = async (userId) => {
+        try {
+            const response = await axios.post('/messages/store', {
+                receiver_id: userId
+            });
+            
+            // Since we're using route helper in blade/inertia, we need to use the full route name
+            window.location.href = route('messages.show', response.data.conversation_id);
+            
+        } catch (error) {
+            console.error('Error starting conversation:', error);
+        }
     };
 
     return (

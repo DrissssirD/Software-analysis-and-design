@@ -10,17 +10,21 @@ use App\Models\JobPost;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Http\Middleware\CheckUserType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CompanyDashboardController extends Controller
 {
     public function __construct()
-{
-    $this->middleware(['auth', 'verified', CheckUserType::class . ':company']);}
+    {
+        $this->middleware(['auth', 'verified', CheckUserType::class . ':company']);
+    }
 
-    public function index(): Response
+    /**
+     * @return Response|RedirectResponse
+     */
+    public function index()
     {
         try {
-            // Log initial access
             Log::info('CompanyDashboardController accessed', [
                 'user_id' => Auth::id(),
                 'user_type' => Auth::user()->user_type,
@@ -29,7 +33,6 @@ class CompanyDashboardController extends Controller
 
             $user = Auth::user();
             
-            // Check if user has a company profile
             if (!$user->companyProfile) {
                 Log::error('Company profile not found for user', ['user_id' => $user->id]);
                 return redirect()->route('profile.edit')
@@ -38,7 +41,6 @@ class CompanyDashboardController extends Controller
 
             $companyProfileId = $user->companyProfile->id;
 
-            // Use query builder instead of raw queries for better security
             $activeJobPosts = DB::table('job_posts')
                 ->where('company_profile_id', $companyProfileId)
                 ->where('status', 'open')
@@ -73,7 +75,6 @@ class CompanyDashboardController extends Controller
                 'trace' => $e->getTraceAsString()
             ]);
 
-            // Return a more user-friendly error response
             if (request()->inertia()) {
                 return Inertia::render('Error', [
                     'status' => 500,

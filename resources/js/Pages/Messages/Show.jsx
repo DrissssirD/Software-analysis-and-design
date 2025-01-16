@@ -1,28 +1,41 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Head } from '@inertiajs/react';
-import { Link } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
+import EmojiPicker from 'emoji-picker-react';
 import Sidebar from '@/Components/Sidebar/Sidebar';
 import { formatDistanceToNow } from 'date-fns';
 import { Paperclip, Send, Smile, ArrowLeft, MoreVertical } from 'lucide-react';
+import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
+import axios from 'axios';
 
 export default function Show({ auth, conversation }) {
     const [newMessage, setNewMessage] = useState('');
     const [attachment, setAttachment] = useState(null);
     const messageEndRef = useRef(null);
     const fileInputRef = useRef(null);
-
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const [messages, setMessages] = useState(conversation.messages);
+    
     const scrollToBottom = () => {
         messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
     useEffect(() => {
+        
         scrollToBottom();
+        
     }, [conversation.messages]);
+
+     // Emoji handler
+     const onEmojiClick = (emojiObject) => {
+        setNewMessage(prevMessage => prevMessage + emojiObject.emoji);
+        setShowEmojiPicker(false);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!newMessage.trim() && !attachment) return;
-
+    
         const formData = new FormData();
         if (newMessage.trim()) {
             formData.append('content', newMessage.trim());
@@ -30,64 +43,97 @@ export default function Show({ auth, conversation }) {
         if (attachment) {
             formData.append('attachment', attachment);
         }
-
+    
         try {
-            await axios.post(route('messages.store', conversation.id), formData, {
+            // Note the route construction here
+            await axios.post(route('messages.message.store', conversation.id), formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
             });
             setNewMessage('');
             setAttachment(null);
+            
+            // Optionally refresh the conversation
+            window.location.reload();
         } catch (error) {
             console.error('Error sending message:', error);
         }
     };
 
-    const MessageBubble = ({ message, isOwn }) => (
-        <div className={`flex ${isOwn ? 'justify-end' : 'justify-start'} mb-4`}>
-            <div className={`max-w-[70%] ${isOwn ? 'order-2' : 'order-1'}`}>
-                <div className={`flex flex-col ${isOwn ? 'items-end' : 'items-start'}`}>
-                    <div className={`rounded-lg px-4 py-2 ${
-                        isOwn 
-                            ? 'bg-[#4640DE] text-white' 
-                            : 'bg-gray-100 text-gray-900'
-                    }`}>
-                        {message.content}
-                        
-                        {/* Attachment preview if exists */}
-                        {message.attachment && (
-                            <div className="mt-2">
-                                {message.attachment.type.startsWith('image/') ? (
-                                    <img 
-                                        src={`/storage/${message.attachment.path}`}
-                                        alt="attachment"
-                                        className="max-w-xs rounded"
-                                    />
-                                ) : (
-                                    <a 
-                                        href={`/storage/${message.attachment.path}`}
-                                        className="text-sm underline"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        View attachment
-                                    </a>
-                                )}
+    const MessageBubble = ({ message, isOwn }) => {
+        const [showReactions, setShowReactions] = useState(false);
+        
+        const addReaction = async (type) => {
+            try {
+                await axios.post(route('messages.reaction.store', message.id), {
+                    reaction_type: type
+                });
+                // We'll handle the update with real-time later
+                window.location.reload();
+            } catch (error) {
+                console.error('Error adding reaction:', error);
+            }
+            setShowReactions(false);
+        };
+    
+        return (
+            <div className={`flex ${isOwn ? 'justify-end' : 'justify-start'} mb-4`}>
+                <div className={`max-w-[70%] ${isOwn ? 'order-2' : 'order-1'}`}>
+                    <div className={`flex flex-col ${isOwn ? 'items-end' : 'items-start'}`}>
+                        <div className="relative group">
+                            <div className={`rounded-lg px-4 py-2 ${
+                                isOwn 
+                                    ? 'bg-[#4640DE] text-white' 
+                                    : 'bg-gray-100 text-gray-900'
+                            }`}>
+                                {message.content}
+                                {/* Existing attachment code */}
+                            </div>
+                            
+                            {/* Quick Reaction Button */}
+                            <button
+                                onClick={() => setShowReactions(!showReactions)}
+                                className="absolute -right-10 top-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                            >
+                                <Smile className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+                            </button>
+    
+                            {/* Reaction Picker */}
+                            {showReactions && (
+                                <div className="absolute top-0 right-0 bg-white shadow-lg rounded-lg p-2 z-50 flex gap-2">
+                                    <button onClick={() => addReaction('❤️')} className="hover:bg-gray-100 p-1 rounded">❤️</button>
+                                    <button onClick={() => addReaction('👍')} className="hover:bg-gray-100 p-1 rounded">👍</button>
+                                    <button onClick={() => addReaction('😄')} className="hover:bg-gray-100 p-1 rounded">😄</button>
+                                    <button onClick={() => addReaction('🎉')} className="hover:bg-gray-100 p-1 rounded">🎉</button>
+                                    <button onClick={() => addReaction('🤔')} className="hover:bg-gray-100 p-1 rounded">🤔</button>
+                                </div>
+                            )}
+                        </div>
+    
+                        {/* Display Reactions */}
+                        {message.reactions && message.reactions.length > 0 && (
+                            <div className="mt-1 flex gap-1">
+                                {message.reactions.map((reaction, index) => (
+                                    <span key={index} className="bg-white shadow-sm rounded-full px-2 py-1 text-xs">
+                                        {reaction.type}
+                                    </span>
+                                ))}
                             </div>
                         )}
-                    </div>
-                    
-                    <div className={`text-xs text-gray-500 mt-1 ${isOwn ? 'text-right' : 'text-left'}`}>
-                        {formatDistanceToNow(new Date(message.created_at), { addSuffix: true })}
-                        {isOwn && message.is_read && (
-                            <span className="ml-2 text-blue-500">✓✓</span>
-                        )}
+    
+                        {/* Timestamp and read receipt */}
+                        <div className={`text-xs text-gray-500 mt-1 ${isOwn ? 'text-right' : 'text-left'}`}>
+                            {formatDistanceToNow(new Date(message.created_at), { addSuffix: true })}
+                            {isOwn && message.is_read && (
+                                <span className="ml-2 text-blue-500">✓✓</span>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <>
@@ -155,12 +201,25 @@ export default function Show({ auth, conversation }) {
                                     placeholder="Type a message..."
                                     className="flex-1 border-0 focus:ring-0 focus:outline-none"
                                 />
-                                <button
-                                    type="button"
-                                    className="text-gray-500 hover:text-gray-700"
-                                >
-                                    <Smile className="w-6 h-6" />
-                                </button>
+                                <div className="relative">
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                                        className="text-gray-500 hover:text-gray-700"
+                                    >
+                                        <Smile className="w-6 h-6" />
+                                    </button>
+                                    
+                                    {showEmojiPicker && (
+                                        <div className="absolute bottom-12 right-0 z-50">
+                                            <EmojiPicker 
+                                                onEmojiClick={onEmojiClick}
+                                                disableAutoFocus={true}
+                                                native
+                                            />
+                                        </div>
+                                    )}
+                                </div>
                                 <button
                                     type="submit"
                                     disabled={!newMessage.trim() && !attachment}

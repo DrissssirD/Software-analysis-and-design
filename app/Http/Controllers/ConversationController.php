@@ -96,37 +96,40 @@ class ConversationController extends Controller
         ]);
     }
 
+    // No need for a separate store file since the method is in ConversationController.php
+
     public function store(Request $request)
     {
+        Log::info('Received data:', $request->all());
+        
         $validated = $request->validate([
-            'receiver_id' => 'required|exists:users,id',
+            'receiver_id' => 'required|exists:users,id'
         ]);
 
         try {
-            // Check if conversation already exists
-            $conversation = Conversation::where(function ($query) use ($validated) {
-                $query->where('sender_id', Auth::id())
-                      ->where('receiver_id', $validated['receiver_id']);
-            })->orWhere(function ($query) use ($validated) {
-                $query->where('sender_id', $validated['receiver_id'])
-                      ->where('receiver_id', Auth::id());
-            })->first();
-
-            if (!$conversation) {
-                $conversation = Conversation::create([
+            $conversation = Conversation::firstOrCreate(
+                [
                     'sender_id' => Auth::id(),
-                    'receiver_id' => $validated['receiver_id'],
-                    'last_message_at' => now(),
-                ]);
-            }
+                    'receiver_id' => $validated['receiver_id']
+                ],
+                ['last_message_at' => now()]
+            );
 
-            return redirect()->route('messages.show', $conversation->id);
+            // Return JSON with conversation ID
+            return response()->json([
+                'success' => true,
+                'conversation_id' => $conversation->id,
+                'message' => 'Conversation created successfully'
+            ]);
+
         } catch (\Exception $e) {
-            Log::error('Conversation creation failed: ' . $e->getMessage());
-            return back()->with('error', 'Failed to create conversation');
+            Log::error('Error in store method: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to create conversation'
+            ], 500);
         }
     }
-
     private function canAccessConversation(Conversation $conversation): bool
     {
         return $conversation->sender_id === Auth::id() || 

@@ -7,6 +7,7 @@ use App\Models\Conversation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Events\NewMessage; 
 
 class MessageController extends Controller
 {
@@ -39,6 +40,9 @@ class MessageController extends Controller
             'attachment_path' => $attachmentPath,
             'attachment_type' => $attachmentType,
         ]);
+    
+        broadcast(new NewMessage($message->load('sender')))->toOthers();
+        
 
         // Update conversation's last_message_at
         $conversation->update(['last_message_at' => now()]);
@@ -46,6 +50,8 @@ class MessageController extends Controller
         return response()->json([
             'message' => $message->load('sender'),
         ]);
+
+        
     }
 
     public function markAsRead(Message $message)
@@ -70,4 +76,5 @@ class MessageController extends Controller
     {
         return $this->canAccessConversation($message->conversation);
     }
+    
 }
