@@ -1,63 +1,120 @@
-import React from "react";
+import React from 'react';
 import { Link } from '@inertiajs/react';
-import logo from "@/Assets/Ellipse 2.jpg";
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
+const Footer = () => {
+  const isAuthenticated = Boolean(window?.route?.current);
 
-const footerLinks = [
-  { name: "Company", route: 'company' },
-  { name: "Pricing", route: 'pricing' },
-  { name: "Terms", route: 'terms' },
-  { name: "Advice", route: 'advice' },
-  { name: "Privacy Policy", route: 'privacy' },
-  { name: "Help Docs", route: 'help' },
-  { name: "Guide", route: 'guide' },
-  { name: "Updates", route: 'updates' },
-  { name: "Contact Us", route: 'contact' },
-];
+  const candidateLinks = isAuthenticated ? [
+    { href: route('jobs.index'), text: 'Browse Jobs' },
+    { href: route('applications.index'), text: 'My Applications' },
+    { href: route('profile.edit'), text: 'Profile' }
+  ] : [
+    { href: route('login'), text: 'Sign In' },
+    { href: route('register'), text: 'Create Account' },
+    { href: route('jobs.index'), text: 'Browse Jobs' }
+  ];
 
-export default function Footer() {
+  const companyLinks = isAuthenticated ? [
+    { href: route('jobs.create'), text: 'Post a Job' },
+    { href: route('company.dashboard'), text: 'Dashboard' }
+  ] : [
+    { href: route('register'), text: 'Post a Job' },
+    { href: route('login'), text: 'Company Login' }
+  ];
+
   return (
-    <div className="mt-16 sm:flex sm:flex-row flex flex-col">
-      <div className="flex flex-col flex-1">
-        <div className="flex gap-4 items-center">
-          <img src={logo} className="rounded-full h-8 w-8" alt="Logo" />
-          <h1 className="text-2xl text-white">Skill Bridge</h1>
-        </div>
+    <footer className="bg-[#25324B] text-white">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <Link href="/" className="text-xl font-bold mb-4 block">
+              Job Board
+            </Link>
+            <p className="text-gray-400">Connecting talent with opportunities worldwide.</p>
+            <div className="flex space-x-4 mt-4">
+              <a href="#" className="hover:text-[#4640DE] transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-[#4640DE] transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-[#4640DE] transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-[#4640DE] transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-semibold mb-4">For Candidates</h4>
+            <ul className="space-y-2">
+              {candidateLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    className="text-gray-400 hover:text-white transition-colors" 
+                    href={link.href}
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <h4 className="sm:w-[376px] w-[250px] text-[#D6DDEB] mt-8 text-base font-normal">
-          Great platform for the job seeker that passionate about startups. Find
-          your dream job easier.
-        </h4>
-      </div>
+          <div>
+            <h4 className="font-semibold mb-4">For Employers</h4>
+            <ul className="space-y-2">
+              {companyLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    className="text-gray-400 hover:text-white transition-colors" 
+                    href={link.href}
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <div className="flex flex-row mt-6 sm:mt-0 flex-1">
-        <div className="flex-1">
-          <h2 className="text-lg sm:text-3xl font-semibold mb-4 text-white">
-            About
-          </h2>
-
-          <div className="flex flex-col text-white gap-4">
-            {footerLinks.slice(0, 5).map((link, index) => (
-              <Link key={index} href={route(link.route)} className="">
-                {link.name}
-              </Link>
-            ))}
+          <div>
+            <h4 className="font-semibold mb-4">Support</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="mailto:support@jobboard.com" 
+                   className="text-gray-400 hover:text-white transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <Link 
+                  href={route('home')} 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href={route('home')} 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Help Center
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-lg sm:text-3xl font-semibold mb-4 text-white">
-            Resource
-          </h2>
-
-          <div className="flex flex-col text-white gap-4">
-            {footerLinks.slice(5).map((link, index) => (
-              <Link key={index} href={route(link.route)} className="">
-                {link.name}
-              </Link>
-            ))}
-          </div>
+        
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Job Board. All rights reserved.</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
-}
+};
+
+export default Footer;

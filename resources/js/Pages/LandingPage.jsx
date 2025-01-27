@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 import NavBar from "@/Components/NavBar";
+import Footer from '@/Components/Footer';
 
 // Sample sections data (move to a separate file in production)
 const sections = [
@@ -119,7 +120,8 @@ export default function LandingPage() {
     }, []);
 
     return (
-        <div className="bg-[#25324B] min-h-screen">
+        <div className="flex flex-col min-h-screen">
+        <main className="bg-[#25324B] flex-grow">
             <div className="p-4 xl:px-32 md:px-5">
                 <NavBar />
 
@@ -259,8 +261,11 @@ export default function LandingPage() {
                         ))}
                     </div>
                 </div>
+
+                <Footer/>
             </div>
           
+        </main>
         </div>
         
     );
